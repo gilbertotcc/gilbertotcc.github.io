@@ -2,7 +2,7 @@
 
 This repository contains the source files for Gilberto’s personal website at
 <https://gilbertotcc.github.io>, built with Jekyll.
-Any use of these files is allowed in accordance with the license terms.
+Use is permitted under the license terms below.
 
 ## Usage
 
@@ -17,7 +17,7 @@ bundle exec jekyll serve
 
 ## License
 
-* Site source code (layouts, includes, config, scripts): **MIT License**
-  (see `LICENSE`).
-* Written content (resume, blog posts, pages): **CC BY-NC 4.0** (see
-  `LICENSE-content`).
+The content of this project itself is licensed under the
+[Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/),
+and the underlying source code used to format and display that content is
+licensed under the [MIT License](LICENSE).
