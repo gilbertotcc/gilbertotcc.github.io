@@ -14,3 +14,10 @@ Then use the following command to build and preview the website locally:
 ```sh
 bundle exec jekyll serve
 ```
+
+## License
+
+* Site source code (layouts, includes, config, scripts): **MIT License**
+  (see `LICENSE`).
+* Written content (resume, blog posts, pages): **CC BY-NC 4.0** (see
+  `LICENSE-content`).
