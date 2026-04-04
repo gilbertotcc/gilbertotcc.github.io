@@ -16,7 +16,6 @@ DICT_ARGS="-d ./hunspell/custom,en_GB"
 IGNORED_DIRS=(
     "vendor"
     "_includes"
-    "_layouts"
     "_site"
     ".bundle"
     ".jekyll-cache"
