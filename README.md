@@ -15,6 +15,46 @@ Then use the following command to build and preview the website locally:
 bundle exec jekyll serve
 ```
 
+## Quality Assurance
+
+### Spell Check
+
+This project enforces spell checking on all Markdown (`.md`) and HTML (`.html`)
+files using `hunspell` and a British English dictionary (`en_GB`).
+
+#### Prerequisites
+
+To run the spell check locally, you must install `hunspell` and the British
+English dictionary:
+
+- **macOS** (using Homebrew):
+
+  ```sh
+  brew install hunspell
+  # The en_GB dictionary may need to be downloaded manually, or use standard paths.
+  # Usually, hunspell on macOS uses dictionaries from ~/Library/Spelling or /Library/Spelling
+  ```
+
+- **Ubuntu/Debian**:
+
+  ```sh
+  sudo apt-get install hunspell hunspell-en-gb
+  ```
+
+#### Running the checks
+
+Run the following script from the root of the project:
+
+```sh
+./scripts/run_spell_check.sh
+```
+
+#### Custom Dictionary
+
+If `hunspell` flags a valid word, you can add it to the project's custom
+dictionary located at `hunspell/custom.dic`. Make sure to update the word count
+on the first line of the file after adding new words.
+
 ## AI-Assisted Development (MCP)
 
 This project is configured to work with AI agents using the
