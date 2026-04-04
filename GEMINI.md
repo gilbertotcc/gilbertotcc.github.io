@@ -77,7 +77,7 @@ It is built using **Jekyll**, a static site generator, and utilizes the
   Actions (`check-markdown-files.yml`).
 - **Link Checking:** `lychee` verifies links in Markdown files.
 - **Deployment:** Automatic deployment to GitHub Pages on pushes to the `main`
-branch (`jekyll-gh-pages.yml`).
+  branch (`jekyll-gh-pages.yml`).
 
 ## Project Structure
 
@@ -88,3 +88,4 @@ branch (`jekyll-gh-pages.yml`).
 - `Gemfile`: Ruby dependencies (Jekyll, Minima, plugins).
 - `.github/workflows/`: CI/CD pipeline definitions.
 - `lychee.toml` & `.markdownlint-cli2.yaml`: QA tool configurations.
+- `.gemini/settings.json`: Configuration for AI agents and MCP servers.
