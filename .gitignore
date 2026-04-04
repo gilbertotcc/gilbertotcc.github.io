@@ -14,4 +14,3 @@ vendor/
 
 .env
 .gemini/gemini-cli-telemetry-key.json
-.gemini/plans/
