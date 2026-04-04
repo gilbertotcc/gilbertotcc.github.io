@@ -1,1 +1,7 @@
+extensions = ["md", "txt", "html"]
+
 exclude_loopback = true
+
+exclude_path = [
+  "vendor/bundle"
+]

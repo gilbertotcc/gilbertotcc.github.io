@@ -64,6 +64,7 @@ exclude:
   - vendor/gems/
   - vendor/ruby/
   # Local files that should not be published to the site
+  - GEMINI.md
   - LICENSE
   - lychee.toml
   - README.md
