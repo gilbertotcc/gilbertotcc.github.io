@@ -12,6 +12,16 @@ fi
 # Define custom dictionary path
 DICT_ARGS="-d ./hunspell/custom,en_GB"
 
+# Directories to ignore during the spell check
+IGNORED_DIRS=(
+    "vendor"
+    "_site"
+    ".bundle"
+    ".jekyll-cache"
+    ".git"
+    ".gemini"
+)
+
 # Function to strip Jekyll Front Matter and run spell check on Markdown
 check_md() {
     local file="$1"
@@ -30,7 +40,16 @@ ERROR_COUNT=0
 
 echo "Running spell check on Markdown and HTML files..."
 
-# Find relevant files, ignoring specific directories
+# Dynamically build the find command arguments
+FIND_ARGS=()
+for dir in "${IGNORED_DIRS[@]}"; do
+    FIND_ARGS+=("-name" "$dir" "-prune" "-o")
+done
+
+# Append the actual file matching criteria
+FIND_ARGS+=("-type" "f" "(" "-name" "*.md" "-o" "-name" "*.html" ")" "-print0")
+
+# Find relevant files, pruning ignored directories
 while IFS= read -r -d '' file; do
     if [[ "$file" == *.md ]]; then
         errors=$(check_md "$file" | sort -u)
@@ -45,14 +64,7 @@ while IFS= read -r -d '' file; do
         echo "$errors"
         ERROR_COUNT=$((ERROR_COUNT + 1))
     fi
-done < <(find . -type f \( -name "*.md" -o -name "*.html" \) \
-    -not -path "./vendor/*" \
-    -not -path "./_site/*" \
-    -not -path "./.bundle/*" \
-    -not -path "./.jekyll-cache/*" \
-    -not -path "./.git/*" \
-    -not -path "./.gemini/*" \
-    -print0)
+done < <(find . "${FIND_ARGS[@]}")
 
 if [ $ERROR_COUNT -gt 0 ]; then
     echo -e "\nSpell check failed. Found errors in $ERROR_COUNT file(s)."
