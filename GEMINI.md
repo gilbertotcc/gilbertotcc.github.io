@@ -55,7 +55,7 @@ It is built using **Jekyll**, a static site generator, and utilizes the
 - **Formatting:** Adhere to `.markdownlint-cli2.yaml` rules.
 - **Links:** Verify all links using `lychee` (configured in `lychee.toml`).
 
-### Theme Customization
+### Theme Customisation
 
 - **Theme:** The site uses the **Minima** theme. Configuration is in
   `_config.yml` under the `minima:` key.
@@ -76,6 +76,10 @@ It is built using **Jekyll**, a static site generator, and utilizes the
 - **Markdown Linting:** Pull requests trigger `markdownlint-cli2` via GitHub
   Actions (`check-markdown-files.yml`).
 - **Link Checking:** `lychee` verifies links in Markdown files.
+- **Spell Checking:** You MUST validate any changes to Markdown (`.md`) or HTML
+  (`.html`) files by running `./scripts/run_spell_check.sh`. If it flags a
+  correctly spelled word, add it to `hunspell/custom.dic` and update the word
+  count on the first line.
 - **Deployment:** Automatic deployment to GitHub Pages on pushes to the `main`
   branch (`jekyll-gh-pages.yml`).
 

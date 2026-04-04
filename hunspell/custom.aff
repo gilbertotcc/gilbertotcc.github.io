@@ -1,0 +1,24 @@
+SET UTF-8
+
+# For case-sensitive words
+KEEPCASE K
+
+# Plural suffix
+SFX S Y 1
+SFX S 0 s .
+
+# Possessive suffix
+SFX P Y 1
+SFX P 0 's .
+
+# for -ise -> -isation
+SFX T e ation e
+SFX T Y 1
+
+# for -ise -> -ised
+SFX D 0 d .
+SFX D Y 1
+
+# for -ity -> -ities
+SFX I y ies y
+SFX I Y 1
