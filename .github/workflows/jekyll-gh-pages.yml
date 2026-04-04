@@ -32,6 +32,8 @@ jobs:
         with:
           ruby-version: '3.3' # Not needed with a .ruby-version, .tool-versions or mise.toml
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+        env:
+          JEKYLL_ENV: production
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v6
