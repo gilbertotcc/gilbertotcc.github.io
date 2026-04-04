@@ -4,7 +4,7 @@
       "enabled": true
     },
     "plan": {
-      "directory": "./plans"
+      "directory": ".gemini/plans/"
     }
   },
   "experimental": {
