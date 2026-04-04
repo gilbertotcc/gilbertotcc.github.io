@@ -3,6 +3,9 @@ SET UTF-8
 # For case-sensitive words
 KEEPCASE K
 
+# Word characters
+WORDCHARS '
+
 # Plural suffix
 SFX S Y 1
 SFX S 0 s .
