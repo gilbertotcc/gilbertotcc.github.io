@@ -38,10 +38,17 @@ It is built using **Jekyll**, a static site generator, and utilizes the
 
   Access the site at `http://localhost:4000`. Use `--livereload` for automatic
   updates.
+
 - **Build the site:**
 
   ```sh
   bundle exec jekyll build
+  ```
+
+  For production builds (which enable Cookiebot and Google Analytics), use:
+
+  ```sh
+  JEKYLL_ENV=production bundle exec jekyll build
   ```
 
 ## Development Conventions
@@ -64,12 +71,17 @@ It is built using **Jekyll**, a static site generator, and utilizes the
 - **Overriding:** To override theme layouts or includes, create a local
   directory (e.g., `_layouts/` or `_includes/`) and copy the theme's file there.
   Use `bundle info minima --path` to find the source files.
+- **Head Customisation:** The `_includes/head.html` file is overridden to inject
+  Cookiebot (consent management) and Google Analytics 4 tracking. These are
+  conditionally loaded based on the `jekyll.environment == 'production'` check.
 
 ### Configuration (`_config.yml`)
 
 - **Metadata:** Title, author, description, and URL are set here.
 - **Plugins:** `jekyll-feed` is used for RSS generation.
-- **Social Links:** LinkedIn and GitHub links are configured under `minima.social_links`.
+- **Social Links:** LinkedIn and GitHub links are configured under
+  `minima.social_links`.
+- **Analytics:** The `google_analytics` property holds the GA4 Measurement ID.
 
 ### CI/CD and Quality Assurance
 
@@ -77,18 +89,24 @@ It is built using **Jekyll**, a static site generator, and utilizes the
   Actions (`check-markdown-files.yml`).
 - **Link Checking:** `lychee` verifies links in Markdown files.
 - **Spell Checking:** You MUST validate any changes to Markdown (`.md`) or HTML
-  (`.html`) files by running `./scripts/run_spell_check.sh`. If it flags a
-  correctly spelled word, add it to `hunspell/custom.dic` and update the word
-  count on the first line.
+  (`.html`) files by running `./scripts/run_spell_check.sh`. Note that this
+  script currently excludes `_includes` (theme elements) and other technical
+  directories (e.g., `vendor/`, `_site/`) from analysis.
+  If it flags a correctly spelled word, add it to `hunspell/custom.dic` and
+  update the word count on the first line.
 - **Deployment:** Automatic deployment to GitHub Pages on pushes to the `main`
   branch (`jekyll-gh-pages.yml`).
 
 ## Project Structure
 
 - `_config.yml`: Site-wide settings and plugin configuration.
+- `_includes/`: Custom and overridden theme components (e.g., `head.html`,
+  `cookiebot.html`).
 - `index.md`: Homepage (uses `home` layout).
 - `about.md`: About page (uses `page` layout).
 - `404.html`: Custom error page.
+- `hunspell/`: Custom dictionary and configuration for spell checking.
+- `scripts/`: Utility scripts, including `run_spell_check.sh`.
 - `Gemfile`: Ruby dependencies (Jekyll, Minima, plugins).
 - `.github/workflows/`: CI/CD pipeline definitions.
 - `lychee.toml` & `.markdownlint-cli2.yaml`: QA tool configurations.

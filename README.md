@@ -80,6 +80,18 @@ GITHUB_PAT=your_github_personal_access_token_here
 
 > **Note**: Never commit your `.env` file. It is already included in `.gitignore`.
 
+## Third-party services
+
+The website uses third-party services to accomplish certain use cases.
+These services are only active when the site is built with the
+`JEKYLL_ENV=production` environment variable.
+
+Here is a list of them as a reference to speed up website setup and maintenance.
+
+- [Cookiebot](https://www.cookiebot.com/): Cookie consent management.
+- [Google Analytics 4](https://developers.google.com/analytics?hl=en): Website
+  traffic analytics.
+
 ## License
 
 The content of this project itself is licensed under the

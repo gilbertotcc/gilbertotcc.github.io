@@ -3,8 +3,8 @@ SET UTF-8
 # For case-sensitive words
 KEEPCASE K
 
-# Word characters
-WORDCHARS '
+# Use smarter apostrophe handling to distinguish it from punctuation (single quotes)
+CHECKAPOSTROPHE
 
 # Plural suffix
 SFX S Y 1
