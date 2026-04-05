@@ -57,8 +57,8 @@ on the first line of the file after adding new words.
 
 ## AI-Assisted Development (MCP)
 
-This project is configured to work with AI agents using the
-[Model Context Protocol (MCP)](https://modelcontextprotocol.io/).
+This project is configured to work with AI agents using the Model Context
+Protocol (MCP).
 MCP allows AI models to safely interact with local and remote tools and data
 sources.
 

@@ -26,4 +26,5 @@ jobs:
       - name: Link Checker
         uses: lycheeverse/lychee-action@v2.8.0
         with:
+          args: "--config lychee.toml --verbose --no-progress ./"
           fail: true
