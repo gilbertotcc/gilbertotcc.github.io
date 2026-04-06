@@ -4,3 +4,21 @@ layout: none
 # {{ site.title }}
 
 {{ site.description }}
+
+{%- assign filtered_pages = site.pages | where_exp: "item", "item.title != nil" | where_exp: "item", "item.url != '/404.html'" | where_exp: "item", "item.url != '/llms.txt'" | sort: "title" -%}
+{%- if filtered_pages.size > 0 %}
+
+## Content
+
+{% for p in filtered_pages -%}
+- [{{ p.title }}]({{ p.url | absolute_url }})
+{% endfor -%}
+{%- endif -%}
+
+{%- if site.theme == "minima" and site.minima.social_links %}
+## Social
+
+{% for link in site.minima.social_links -%}
+- [{{ link.title }}]({{ link.url }})
+{% endfor -%}
+{%- endif %}
