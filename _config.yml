@@ -28,7 +28,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   leading tech teams in European startups and scaleups. Here, I share my
   perspectives on leadership, new technologies, and industry trends.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://gilbertotcc.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://gilbertotaccari.com" # the base hostname & protocol for your site, e.g. http://example.com
 lang: en
 
 # Analytics
