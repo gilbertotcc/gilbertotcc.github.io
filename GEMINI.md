@@ -53,6 +53,30 @@ It is built using **Jekyll**, a static site generator, and utilizes the
 
 ## Development Conventions
 
+### Documentation Routing
+
+To minimise context usage, detailed operational instructions are delegated to
+specific files. Always refer to these before proceeding with related tasks:
+
+- **`README.md`**: Detailed prerequisites (e.g., `hunspell`), AI-assisted
+  development (MCP) setup, and third-party services list.
+- **`terraform/README.md`**: Infrastructure as Code (IaC) operations, OpenTofu
+  rules, and cloud dependencies.
+
+### Environment and Secrets
+
+- All credentials (e.g., API keys, PATs) must be stored in a local `.env` file.
+- **Never** commit the `.env` file; it is protected by `.gitignore`.
+- The project uses `direnv` as the standard approach to load environment
+  variables locally.
+
+### Infrastructure as Code
+
+- The project uses **OpenTofu** for IaC to manage GitHub repository settings
+  and Porkbun DNS.
+- For rules, state management, and execution details, always consult
+  `terraform/README.md`.
+
 ### Content Management
 
 - **Pages:** Standard pages like `index.md` and `about.md` use Front Matter for
@@ -107,6 +131,7 @@ It is built using **Jekyll**, a static site generator, and utilizes the
 - `404.html`: Custom error page.
 - `hunspell/`: Custom dictionary and configuration for spell checking.
 - `scripts/`: Utility scripts, including `run_spell_check.sh`.
+- `terraform/`: Infrastructure as Code configuration.
 - `Gemfile`: Ruby dependencies (Jekyll, Minima, plugins).
 - `.github/workflows/`: CI/CD pipeline definitions.
 - `lychee.toml` & `.markdownlint-cli2.yaml`: QA tool configurations.

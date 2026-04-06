@@ -12,6 +12,7 @@ vendor/
 
 # End of https://www.toptal.com/developers/gitignore/api/jekyll
 
+# IMPORTANT: Sensitive information (e.g., API keys, secrets)
 .env
 .gemini/gemini-cli-telemetry-key.json
 

@@ -71,14 +71,16 @@ The configuration is stored in `.gemini/settings.json` and includes:
 
 ### Configuration
 
-To use these servers, create a `.env` file in the root directory with your credentials:
+To use these servers, create a `.env` file in the root directory with your
+credentials:
 
 ```env
 CONTEXT7_API_KEY=your_api_key_here
 GITHUB_PAT=your_github_personal_access_token_here
 ```
 
-> **Note**: Never commit your `.env` file. It is already included in `.gitignore`.
+> **Note**: Never commit your `.env` file. It is already included in
+> `.gitignore`.
 
 ## Third-party services
 
@@ -91,6 +93,20 @@ Here is a list of them as a reference to speed up website setup and maintenance.
 - [Cookiebot](https://www.cookiebot.com/): Cookie consent management.
 - [Google Analytics 4](https://developers.google.com/analytics?hl=en): Website
   traffic analytics.
+
+## Infrastructure as Code
+
+The infrastructure required to make the website work is configured using an
+Infrastructure as Code (IaC) approach.
+See [Infrastructure as Code](terraform/README.md) for details.
+
+## Tips & Tricks
+
+**Use direnv.** To load the environment variables in `.env` file, you can use
+[direnv](https://direnv.net/) that runs code in `.envrc` or, optionally, load
+variables in `.env` files (see
+[`load_dotenv`](https://direnv.net/man/direnv.toml.1.html#codeloaddotenvcode)
+configuration parameter).
 
 ## License
 
