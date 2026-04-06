@@ -1,0 +1,25 @@
+# This file is maintained automatically by "tofu init".
+# Manual edits may be lost in future updates.
+
+provider "registry.opentofu.org/jianyuan/porkbun" {
+  version     = "0.2.2"
+  constraints = "0.2.2"
+  hashes = [
+    "h1:5Hsy26krgPh2R+NK8xIkQ2nHnv6aLSAOxgi0u3qeCP0=",
+    "zh:23fd9c6239bab5aba53efc03073aa8e0878d329b6ec53abd657e97db3564ea70",
+    "zh:4089499edfadbb4bc2e1b6776233ed0a3eb5fea3d413c7fe5b49f84e4f5d324a",
+    "zh:4b138096bfb62d50f354ff8d100056da27eef327ca7f170a6416a5d9d7aed913",
+    "zh:4e545189b8ba49897062012701f87072137e9d422eda4a9d010bef76f5005a07",
+    "zh:5586c6ea1e56599a61615c9966e3353cc70cb9f3cad7105939a5b68eae54b2d5",
+    "zh:76dd06bc0d0eb4ff3b6122d854cf70acf8ed587a7ba9bbb47b7841f28a358827",
+    "zh:890df766e9b839623b1f0437355032a3c006226a6c200cd911e15ee1a9014e9f",
+    "zh:918d0b8e33be2d0bd80287bd106483d8c4955bca8062cd95b40654238b2a097a",
+    "zh:926ff97ede0ceb1fa2536c60de571da8f273ac13df87f7269611efcede5d37de",
+    "zh:96053680edb94809a0517942c78a3daf1aa68c7ee7c23bb5f18ee10be98f6355",
+    "zh:ad4237159ce504b7df086d0fc32a8137127860614a52bae8aa7073d787773d42",
+    "zh:d084cb92f1d232532bc14634d57660b1f66c912cf870ebfb7b61b33764c82219",
+    "zh:d64f76626d2dbd15e029163c5e5bad63a066f5658af05032c197b1f459c094dd",
+    "zh:ef94e27248b594d588fb26b1285b89a378783825723f910017418ee7eff5d733",
+    "zh:ffd4743adb1dd9b87f301627a36c161b92eab566db25e20e5904ec8052fbd039",
+  ]
+}

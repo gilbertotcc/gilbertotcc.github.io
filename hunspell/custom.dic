@@ -1,4 +1,4 @@
-75
+91
 ADR/S
 API/S
 Backend/S
@@ -10,12 +10,16 @@ Context7
 Copilot/S
 DD
 DDD
+DNSes
 Fabrick
+GCP
+GCS
 GDPR
 Gemfile/S
 Gilberto
 GitHub/S
 Homebrew
+IaC
 Jekyll/S
 KYB/S
 KYC/S
@@ -24,6 +28,9 @@ MCP/S
 Minima
 NC
 NonCommercial
+OpenTofu
+PORKBUN
+Porkbun
 PSD/S
 PSD2
 Penta
@@ -37,14 +44,20 @@ ai
 api/S
 cli/S
 cli2
+codeloaddotenvcode
 config/S
 cookiebot/S
 dev/S
 dic/S
+direnv
+dotenv
+endif
 env/S
+envrc
 fintech/S
 frontend/S
 gb
+gcloud
 gemini
 gh
 gilbertotcc
@@ -52,6 +65,7 @@ github/S
 gitignore/S
 hunspell
 infinitec
+init
 io
 jekyll/S
 json
@@ -65,6 +79,7 @@ organizational
 plugin/S
 repo/S
 rigor
+seo
 startup/S
 sudo
 taccari/P
@@ -74,3 +89,4 @@ utilizes
 yaml/S
 yml/S
 yyyy
+PATs

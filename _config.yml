@@ -70,11 +70,8 @@ exclude:
   - gemfiles/
   - Gemfile
   - Gemfile.lock
-  - node_modules/
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
+  - terraform/
+  - vendor/
   # Local files that should not be published to the site
   - hunspell/
   - scripts/
