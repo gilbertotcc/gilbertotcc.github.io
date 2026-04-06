@@ -1,4 +1,4 @@
-91
+93
 ADR/S
 API/S
 Backend/S
@@ -70,6 +70,7 @@ io
 jekyll/S
 json
 livereload
+llms
 localhost
 lychee
 macOS
@@ -85,6 +86,7 @@ sudo
 taccari/P
 toml
 tot
+txt
 utilizes
 yaml/S
 yml/S

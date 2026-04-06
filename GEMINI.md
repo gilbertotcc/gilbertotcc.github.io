@@ -85,6 +85,9 @@ specific files. Always refer to these before proceeding with related tasks:
   blog entries named `YYYY-MM-DD-title.md`.
 - **Formatting:** Adhere to `.markdownlint-cli2.yaml` rules.
 - **Links:** Verify all links using `lychee` (configured in `lychee.toml`).
+- **LLM Context:** `llms.txt` provides a machine-readable summary of the site
+  for LLMs, including site metadata, page links, and social information. It is
+  dynamically generated using Jekyll.
 
 ### Theme Customisation
 
@@ -133,6 +136,7 @@ specific files. Always refer to these before proceeding with related tasks:
 - `scripts/`: Utility scripts, including `run_spell_check.sh`.
 - `terraform/`: Infrastructure as Code configuration.
 - `Gemfile`: Ruby dependencies (Jekyll, Minima, plugins).
+- `llms.txt`: LLM-friendly site summary.
 - `.github/workflows/`: CI/CD pipeline definitions.
 - `lychee.toml` & `.markdownlint-cli2.yaml`: QA tool configurations.
 - `.gemini/settings.json`: Configuration for AI agents and MCP servers.

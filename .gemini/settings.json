@@ -2,9 +2,6 @@
   "general": {
     "checkpointing": {
       "enabled": true
-    },
-    "plan": {
-      "directory": ".gemini/plans/"
     }
   },
   "experimental": {
