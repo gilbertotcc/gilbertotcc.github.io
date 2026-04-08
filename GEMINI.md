@@ -3,7 +3,7 @@
 ## Project Overview
 
 This project is the source code for Gilberto Taccari's personal website and
-blog, hosted at [gilbertotcc.github.io](https://gilbertotcc.github.io).
+blog, hosted at [gilbertotaccari.com](https://gilbertotaccari.com).
 It is built using **Jekyll**, a static site generator, and utilizes the
 **Minima** theme.
 
@@ -79,8 +79,8 @@ specific files. Always refer to these before proceeding with related tasks:
 
 ### Content Management
 
-- **Pages:** Standard pages like `index.md` and `about.md` use Front Matter for
-  layout and metadata.
+- **Pages:** Standard pages like `index.md`, `about.md`, and `privacy.md` use
+  Front Matter for layout and metadata.
 - **Posts:** Although currently empty, a `_posts/` directory can be created for
   blog entries named `YYYY-MM-DD-title.md`.
 - **Formatting:** Adhere to `.markdownlint-cli2.yaml` rules.
@@ -97,14 +97,20 @@ specific files. Always refer to these before proceeding with related tasks:
   preference).
 - **Overriding:** To override theme layouts or includes, create a local
   directory (e.g., `_layouts/` or `_includes/`) and copy the theme's file there.
-  Use `bundle info minima --path` to find the source files.
+  Currently, `footer.html`, `head.html`, and `google-analytics.html` are
+  overridden. Use `bundle info minima --path` to find the source files.
 - **Head Customisation:** The `_includes/head.html` file is overridden to inject
-  Cookiebot (consent management) and Google Analytics 4 tracking. These are
-  conditionally loaded based on the `jekyll.environment == 'production'` check.
+  Cookiebot (consent management) and Google Analytics 4 tracking.
+- **Privacy & Analytics:** Google Analytics 4 (`_includes/google-analytics.html`)
+  is strictly controlled by Cookiebot. Scripts use `type="text/plain"` and
+  `data-cookieconsent="statistics"` to prevent execution until explicit consent
+  is granted, ensuring GDPR compliance regarding international data transfers.
 
 ### Configuration (`_config.yml`)
 
 - **Metadata:** Title, author, description, and URL are set here.
+- **Navigation:** Main header links are explicitly defined in
+  `minima.nav_pages` to exclude administrative pages like the Privacy Policy.
 - **Plugins:** `jekyll-feed` is used for RSS generation.
 - **Social Links:** LinkedIn and GitHub links are configured under
   `minima.social_links`.
@@ -128,9 +134,10 @@ specific files. Always refer to these before proceeding with related tasks:
 
 - `_config.yml`: Site-wide settings and plugin configuration.
 - `_includes/`: Custom and overridden theme components (e.g., `head.html`,
-  `cookiebot.html`).
+  `footer.html`, `google-analytics.html`, `cookiebot.html`).
 - `index.md`: Homepage (uses `home` layout).
 - `about.md`: About page (uses `page` layout).
+- `privacy.md`: GDPR-compliant Privacy Policy page.
 - `404.html`: Custom error page.
 - `hunspell/`: Custom dictionary and configuration for spell checking.
 - `scripts/`: Utility scripts, including `run_spell_check.sh`.

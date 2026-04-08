@@ -1,7 +1,7 @@
 # gilbertotcc.github.io
 
 This repository contains the source files for Gilberto’s personal website at
-<https://gilbertotcc.github.io>, built with Jekyll.
+<https://gilbertotaccari.com>, built with Jekyll.
 Use is permitted under the license terms below.
 
 ## Usage
