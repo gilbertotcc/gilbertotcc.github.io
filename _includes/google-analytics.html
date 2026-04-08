@@ -1,6 +1,13 @@
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
-<script>
+<!-- Google Analytics 4 — Cookiebot-controlled -->
+<!-- type="text/plain" prevents execution until Cookiebot grants consent -->
+<!-- data-cookieconsent="statistics" maps to the analytics_storage signal -->
+<script
+  type="text/plain"
+  data-cookieconsent="statistics"
+  async
+  src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}">
+</script>
+<script type="text/plain" data-cookieconsent="statistics">
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
