@@ -1,4 +1,4 @@
-106
+108
 ADR/S
 API/S
 Backend/S
@@ -55,6 +55,7 @@ codeloaddotenvcode
 com
 config/S
 cookiebot/S
+cookieconsent
 dati
 dei
 dev/S
@@ -87,6 +88,7 @@ lychee
 macOS
 markdownlint
 md
+nav
 organizational
 personali
 plugin/S
