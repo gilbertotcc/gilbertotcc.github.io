@@ -3,7 +3,7 @@
 ## Project Overview
 
 This project is the source code for Gilberto Taccari's personal website and
-blog, hosted at [gilbertotcc.github.io](https://gilbertotcc.github.io).
+blog, hosted at [gilbertotaccari.com](https://gilbertotaccari.com).
 It is built using **Jekyll**, a static site generator, and utilizes the
 **Minima** theme.
 
