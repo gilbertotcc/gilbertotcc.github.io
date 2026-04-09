@@ -1,4 +1,4 @@
-extensions = ["md", "html", "txt"]
+extensions = ["md"]
 
 exclude_loopback = true
 
