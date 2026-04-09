@@ -88,6 +88,12 @@ specific files. Always refer to these before proceeding with related tasks:
 - **LLM Context:** `llms.txt` provides a machine-readable summary of the site
   for LLMs, including site metadata, page links, and social information. It is
   dynamically generated using Jekyll.
+- **AI Context Submodule:** A private submodule `curriculum-vitae` is used to
+  provide personal data as context for LLM-assisted development.
+  - **Syncing:** The submodule tracks the `main` branch. Use
+    `git submodule update --remote curriculum-vitae` to sync.
+  - **Privacy:** This directory is explicitly excluded in `_config.yml` to
+    ensure it is never processed by Jekyll or published to the website.
 
 ### Theme Customisation
 

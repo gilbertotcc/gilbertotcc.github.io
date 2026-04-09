@@ -69,6 +69,18 @@ The configuration is stored in `.gemini/settings.json` and includes:
 - **GitHub Copilot**: Enables interaction with GitHub for pull requests, issues,
   and repository management.
 
+### Curriculum Vitae Context
+
+The project includes a private submodule `curriculum-vitae` to provide personal
+data for AI-assisted workflows. This directory is excluded from the Jekyll build
+process.
+
+To update the submodule to the latest version:
+
+```sh
+git submodule update --remote curriculum-vitae
+```
+
 ### Configuration
 
 To use these servers, create a `.env` file in the root directory with your
