@@ -74,6 +74,7 @@ exclude:
   - Gemfile.lock
   - terraform/
   - vendor/
+  - curriculum-vitae/
   # Local files that should not be published to the site
   - hunspell/
   - scripts/
