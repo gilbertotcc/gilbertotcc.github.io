@@ -12,6 +12,14 @@ resource "uptimerobot_monitor" "website" {
   type     = "HTTP"
   url      = "https://gilbertotaccari.com"
   interval = 300
+
+  assigned_alert_contacts = [
+    {
+      alert_contact_id = uptimerobot_integration.website_discord.id,
+      threshold        = 0,
+      recurrence       = 0
+    }
+  ]
 }
 
 resource "uptimerobot_psp" "webisite" {
