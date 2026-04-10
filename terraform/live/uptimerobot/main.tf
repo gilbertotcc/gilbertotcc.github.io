@@ -46,3 +46,13 @@ variable "discord_webhook_url" {
   type        = string
   sensitive   = true
 }
+
+resource "uptimerobot_psp" "webisite" {
+  name = "gilbertotaccari.com Status"
+  monitor_ids = [
+    uptimerobot_monitor.website.id,
+  ]
+
+  # Prevent search engine indexing
+  no_index = true
+}
