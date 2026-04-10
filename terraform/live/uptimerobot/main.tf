@@ -46,28 +46,3 @@ variable "discord_webhook_url" {
   type        = string
   sensitive   = true
 }
-
-resource "uptimerobot_psp" "webisite" {
-  name = "gilbertotaccari.com Status"
-  monitor_ids = [
-    uptimerobot_monitor.website.id,
-  ]
-
-  # Prevent search engine indexing
-  no_index = true
-}
-
-resource "uptimerobot_integration" "website_discord" {
-  name                     = "Website Discord"
-  type                     = "discord"
-  value                    = var.discord_webhook_url
-  enable_notifications_for = 1
-  ssl_expiration_reminder  = false
-}
-
-# Set the variable in your environment as TF_VAR_discord_webhook_url
-variable "discord_webhook_url" {
-  description = "Discord webhook URL for notifications"
-  type        = string
-  sensitive   = true
-}
