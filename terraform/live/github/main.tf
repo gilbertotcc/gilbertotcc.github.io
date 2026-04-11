@@ -58,3 +58,29 @@ resource "github_repository_topics" "gilbertotcc_github_io" {
   repository = github_repository.gilbertotcc_github_io.name
   topics     = ["github-pages", "website"]
 }
+
+resource "github_repository_webhook" "gilbertotcc_github_io" {
+  repository = github_repository.gilbertotcc_github_io.name
+
+  configuration {
+    url          = "${var.discord_webhook_url}/github"
+    content_type = "application/json"
+    insecure_ssl = false
+  }
+
+  active = true
+
+  events = [
+    "dependabot_alert",
+    "issues",
+    "pull_request",
+    "push"
+  ]
+}
+
+# Set the variable in your environment as TF_VAR_discord_webhook_url
+variable "discord_webhook_url" {
+  description = "Discord webhook URL for notifications"
+  type        = string
+  sensitive   = true
+}
