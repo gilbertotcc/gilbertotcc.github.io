@@ -7,6 +7,7 @@ IaC controls these infrastructural elements:
 
 - GitHub repository
 - Porkbun DNSes
+- UptimeRobot
 
 OpenTofu state is persisted on a GCS bucket.
 
@@ -19,9 +20,12 @@ To use IaC, you follow these steps.
 - Install the GitHub CLI, which the GitHub Terraform provider uses.
 - Set the variables `PORKBUN_API_KEY` and `PORKBUN_SECRET_KEY` in your
   environment that the Porkbun Terraform provider uses.
-  You can configure these variables in a `.env` file within this
-  directory and use direnv to load them.
-  (See [Tips & Tricks](../README.md#tips--tricks) in the main README file.)
+- Set the variables `UPTIMEROBOT_API_KEY` in your environment that the
+  UptimeRobot Terraform provider uses.
+
+> NOTE: You can configure these variables in a `.env` file within this directory
+> and use direnv to load them.
+> (See [Tips & Tricks](../README.md#tips--tricks) in the main README file.)
 
 For more information, see the providers’ documentation.
 See the [References](#references) section below.
@@ -38,3 +42,4 @@ commands `plan` and `apply`  to plan the changes and apply them, respectively.
 
 - [GitHub Terraform provider](https://registry.terraform.io/providers/integrations/github/latest)
 - [Porkbun Terraform provider](https://registry.terraform.io/providers/jianyuan/porkbun/latest)
+- [UptimeRobot Terraform Provider](https://registry.terraform.io/providers/uptimerobot/uptimerobot/latest)
