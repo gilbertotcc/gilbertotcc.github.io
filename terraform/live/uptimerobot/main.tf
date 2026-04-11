@@ -22,7 +22,7 @@ resource "uptimerobot_monitor" "website" {
   ]
 }
 
-resource "uptimerobot_psp" "webisite" {
+resource "uptimerobot_psp" "website" {
   name = "gilbertotaccari.com Status"
   monitor_ids = [
     uptimerobot_monitor.website.id,
