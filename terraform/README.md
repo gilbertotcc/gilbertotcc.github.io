@@ -20,8 +20,9 @@ To use IaC, you follow these steps.
 - Install the GitHub CLI, which the GitHub Terraform provider uses.
 - Set the variables `PORKBUN_API_KEY` and `PORKBUN_SECRET_KEY` in your
   environment that the Porkbun Terraform provider uses.
-- Set the variables `UPTIMEROBOT_API_KEY` in your environment that the
-  UptimeRobot Terraform provider uses.
+- Set the variables `UPTIMEROBOT_API_KEY` and `TF_VAR_discord_webhook_url`
+  in your environment that the UptimeRobot Terraform provider uses to
+  interact with the API and setup integration with Discord.
 
 > NOTE: You can configure these variables in a `.env` file within this directory
 > and use direnv to load them.

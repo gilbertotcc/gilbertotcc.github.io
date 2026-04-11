@@ -12,6 +12,14 @@ resource "uptimerobot_monitor" "website" {
   type     = "HTTP"
   url      = "https://gilbertotaccari.com"
   interval = 300
+
+  assigned_alert_contacts = [
+    {
+      alert_contact_id = uptimerobot_integration.website_discord.id,
+      threshold        = 0,
+      recurrence       = 0
+    }
+  ]
 }
 
 resource "uptimerobot_psp" "webisite" {
@@ -22,4 +30,19 @@ resource "uptimerobot_psp" "webisite" {
 
   # Prevent search engine indexing
   no_index = true
+}
+
+resource "uptimerobot_integration" "website_discord" {
+  name                     = "Website Discord"
+  type                     = "discord"
+  value                    = var.discord_webhook_url
+  enable_notifications_for = 1
+  ssl_expiration_reminder  = false
+}
+
+# Set the variable in your environment as TF_VAR_discord_webhook_url
+variable "discord_webhook_url" {
+  description = "Discord webhook URL for notifications"
+  type        = string
+  sensitive   = true
 }
