@@ -12,7 +12,7 @@ provider "github" {
 resource "github_repository" "gilbertotcc_github_io" {
   name         = "gilbertotcc.github.io"
   description  = "Gilberto's personal website"
-  homepage_url = "https://gillbertotaccari.com"
+  homepage_url = "https://gilbertotaccari.com"
 
   visibility = "public"
 
@@ -64,7 +64,7 @@ resource "github_repository_webhook" "gilbertotcc_github_io" {
 
   configuration {
     url          = "${var.discord_webhook_url}/github"
-    content_type = "application/json"
+    content_type = "json"
     insecure_ssl = false
   }
 
