@@ -70,11 +70,14 @@ resource "github_repository_webhook" "gilbertotcc_github_io" {
 
   active = true
 
+  # Supported events by Discord:
+  # https://docs.discord.com/developers/resources/webhook#execute-github-compatible-webhook
   events = [
-    "dependabot_alert",
     "issues",
+    "issue_comment",
     "pull_request",
-    "push"
+    "pull_request_review",
+    "pull_request_review_comment"
   ]
 }
 
