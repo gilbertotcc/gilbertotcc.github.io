@@ -140,18 +140,18 @@ specific files. Always refer to these before proceeding with related tasks:
 
 ## Project Structure
 
+- `.gemini/settings.json`: Configuration for AI agents and MCP servers.
+- `.github/workflows/`: CI/CD pipeline definitions.
+- `.markdownlint-cli2.yaml` & `lychee.toml`: QA tool configurations.
+- `Gemfile`: Ruby dependencies (Jekyll, Minima, plugins).
+- `hunspell/`: Custom dictionary and configuration for spell checking.
+- `scripts/`: Utility scripts, including `run_spell_check.sh`.
+- `site/404.html`: Custom error page.
 - `site/_config.yml`: Site-wide settings and plugin configuration.
 - `site/_includes/`: Custom and overridden theme components (e.g., `head.html`,
   `footer.html`, `google-analytics.html`, `cookiebot.html`).
-- `site/index.md`: Homepage (uses `home` layout).
 - `site/about.md`: About page (uses `page` layout).
-- `site/privacy.md`: GDPR-compliant Privacy Policy page.
-- `site/404.html`: Custom error page.
-- `hunspell/`: Custom dictionary and configuration for spell checking.
-- `scripts/`: Utility scripts, including `run_spell_check.sh`.
-- `terraform/`: Infrastructure as Code configuration.
-- `Gemfile`: Ruby dependencies (Jekyll, Minima, plugins).
+- `site/index.md`: Homepage (uses `home` layout).
 - `site/llms.txt`: LLM-friendly site summary.
-- `.github/workflows/`: CI/CD pipeline definitions.
-- `lychee.toml` & `.markdownlint-cli2.yaml`: QA tool configurations.
-- `.gemini/settings.json`: Configuration for AI agents and MCP servers.
+- `site/privacy.md`: GDPR-compliant Privacy Policy page.
+- `terraform/`: Infrastructure as Code configuration.
