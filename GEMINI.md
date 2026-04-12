@@ -33,7 +33,7 @@ It is built using **Jekyll**, a static site generator, and utilizes the
 - **Local development server:**
 
   ```sh
-  bundle exec jekyll serve
+  bundle exec jekyll serve --source site
   ```
 
   Access the site at `http://localhost:4000`. Use `--livereload` for automatic
@@ -42,13 +42,13 @@ It is built using **Jekyll**, a static site generator, and utilizes the
 - **Build the site:**
 
   ```sh
-  bundle exec jekyll build
+  bundle exec jekyll build --source site
   ```
 
   For production builds (which enable Cookiebot and Google Analytics), use:
 
   ```sh
-  JEKYLL_ENV=production bundle exec jekyll build
+  JEKYLL_ENV=production bundle exec jekyll build --source site
   ```
 
 ## Development Conventions
@@ -92,7 +92,7 @@ specific files. Always refer to these before proceeding with related tasks:
   provide personal data as context for LLM-assisted development.
   - **Syncing:** The submodule tracks the `main` branch. Use
     `git submodule update --remote curriculum-vitae` to sync.
-  - **Privacy:** This directory is explicitly excluded in `_config.yml` to
+  - **Privacy:** This directory is outside the `site/` directory to
     ensure it is never processed by Jekyll or published to the website.
 
 ### Theme Customisation
@@ -102,17 +102,19 @@ specific files. Always refer to these before proceeding with related tasks:
 - **Skins:** Supported skins include `light`, `dark`, and `auto` (detects system
   preference).
 - **Overriding:** To override theme layouts or includes, create a local
-  directory (e.g., `_layouts/` or `_includes/`) and copy the theme's file there.
+  directory (e.g., `site/_layouts/` or `site/_includes/`) and copy the theme's
+  file there.
   Currently, `footer.html`, `head.html`, and `google-analytics.html` are
   overridden. Use `bundle info minima --path` to find the source files.
-- **Head Customisation:** The `_includes/head.html` file is overridden to inject
-  Cookiebot (consent management) and Google Analytics 4 tracking.
-- **Privacy & Analytics:** Google Analytics 4 (`_includes/google-analytics.html`)
-  is strictly controlled by Cookiebot. Scripts use `type="text/plain"` and
-  `data-cookieconsent="statistics"` to prevent execution until explicit consent
-  is granted, ensuring GDPR compliance regarding international data transfers.
+- **Head Customisation:** The `site/_includes/head.html` file is overridden to
+  inject Cookiebot (consent management) and Google Analytics 4 tracking.
+- **Privacy & Analytics:** Google Analytics 4
+  (`site/_includes/google-analytics.html`) is strictly controlled by Cookiebot.
+  Scripts use `type="text/plain"` and `data-cookieconsent="statistics"` to
+  prevent execution until explicit consent is granted, ensuring GDPR compliance
+  regarding international data transfers.
 
-### Configuration (`_config.yml`)
+### Configuration (`site/_config.yml`)
 
 - **Metadata:** Title, author, description, and URL are set here.
 - **Navigation:** Main header links are explicitly defined in
@@ -129,8 +131,8 @@ specific files. Always refer to these before proceeding with related tasks:
 - **Link Checking:** `lychee` verifies links in Markdown files.
 - **Spell Checking:** You MUST validate any changes to Markdown (`.md`) or HTML
   (`.html`) files by running `./scripts/run_spell_check.sh`. Note that this
-  script currently excludes `_includes` (theme elements) and other technical
-  directories (e.g., `vendor/`, `_site/`) from analysis.
+  script currently excludes technical directories (e.g., `vendor/`, `_site/`)
+  from analysis.
   If it flags a correctly spelled word, add it to `hunspell/custom.dic` and
   update the word count on the first line.
 - **Deployment:** Automatic deployment to GitHub Pages on pushes to the `main`
@@ -138,18 +140,18 @@ specific files. Always refer to these before proceeding with related tasks:
 
 ## Project Structure
 
-- `_config.yml`: Site-wide settings and plugin configuration.
-- `_includes/`: Custom and overridden theme components (e.g., `head.html`,
+- `site/_config.yml`: Site-wide settings and plugin configuration.
+- `site/_includes/`: Custom and overridden theme components (e.g., `head.html`,
   `footer.html`, `google-analytics.html`, `cookiebot.html`).
-- `index.md`: Homepage (uses `home` layout).
-- `about.md`: About page (uses `page` layout).
-- `privacy.md`: GDPR-compliant Privacy Policy page.
-- `404.html`: Custom error page.
+- `site/index.md`: Homepage (uses `home` layout).
+- `site/about.md`: About page (uses `page` layout).
+- `site/privacy.md`: GDPR-compliant Privacy Policy page.
+- `site/404.html`: Custom error page.
 - `hunspell/`: Custom dictionary and configuration for spell checking.
 - `scripts/`: Utility scripts, including `run_spell_check.sh`.
 - `terraform/`: Infrastructure as Code configuration.
 - `Gemfile`: Ruby dependencies (Jekyll, Minima, plugins).
-- `llms.txt`: LLM-friendly site summary.
+- `site/llms.txt`: LLM-friendly site summary.
 - `.github/workflows/`: CI/CD pipeline definitions.
 - `lychee.toml` & `.markdownlint-cli2.yaml`: QA tool configurations.
 - `.gemini/settings.json`: Configuration for AI agents and MCP servers.

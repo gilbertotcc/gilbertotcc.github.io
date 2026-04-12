@@ -69,16 +69,3 @@ plugins:
 exclude:
   - .sass-cache/
   - .jekyll-cache/
-  - gemfiles/
-  - Gemfile
-  - Gemfile.lock
-  - terraform/
-  - vendor/
-  - curriculum-vitae/
-  # Local files that should not be published to the site
-  - hunspell/
-  - scripts/
-  - GEMINI.md
-  - LICENSE
-  - lychee.toml
-  - README.md
