@@ -54,43 +54,14 @@ resource "github_branch_default" "gilbertotcc_github_io" {
   branch     = "main"
 }
 
+resource "github_branch_protection" "gilbertotcc_github_io" {
+  repository_id = github_repository.gilbertotcc_github_io.node_id
+  pattern       = github_branch_default.gilbertotcc_github_io.branch
+}
+
 resource "github_repository_topics" "gilbertotcc_github_io" {
   repository = github_repository.gilbertotcc_github_io.name
   topics     = ["github-pages", "website"]
-}
-
-resource "github_repository_ruleset" "gilbertotcc_github_io_prs" {
-  name        = "PRs"
-  repository  = github_repository.gilbertotcc_github_io.name
-  target      = "branch"
-  enforcement = "active"
-
-  conditions {
-    ref_name {
-      exclude = []
-      include = [
-        "~DEFAULT_BRANCH",
-      ]
-    }
-  }
-
-  rules {
-    deletion         = true
-    non_fast_forward = true
-    pull_request {
-      allowed_merge_methods = [
-        "merge", "squash", "rebase"
-      ]
-    }
-
-    required_status_checks {
-      strict_required_status_checks_policy = true
-
-      required_check {
-        context = "all"
-      }
-    }
-  }
 }
 
 resource "github_repository_webhook" "gilbertotcc_github_io" {
