@@ -54,6 +54,11 @@ resource "github_branch_default" "gilbertotcc_github_io" {
   branch     = "main"
 }
 
+resource "github_branch_protection" "gilbertotcc_github_io" {
+  repository_id = github_repository.gilbertotcc_github_io.node_id
+  pattern       = github_branch_default.gilbertotcc_github_io.branch
+}
+
 resource "github_repository_topics" "gilbertotcc_github_io" {
   repository = github_repository.gilbertotcc_github_io.name
   topics     = ["github-pages", "website"]
