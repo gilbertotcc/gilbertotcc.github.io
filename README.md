@@ -12,7 +12,7 @@ To set up the development environment, follow the instructions at
 Then use the following command to build and preview the website locally:
 
 ```sh
-bundle exec jekyll serve
+bundle exec jekyll serve --source site
 ```
 
 ## Quality Assurance
