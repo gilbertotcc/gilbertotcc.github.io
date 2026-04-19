@@ -23,10 +23,8 @@ author:
   name: Gilberto Taccari
 #  email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
-  This is Gilberto Taccari's personal website. I am a senior engineering leader
-  with 10+ years of experience in fintech, mainly building digital products and
-  leading tech teams in European startups and scaleups. Here, I share my
-  perspectives on leadership, new technologies, and industry trends.
+  Building engineering teams and fintech platforms for regulated, high-growth
+  startups and scaleups.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://gilbertotaccari.com" # the base hostname & protocol for your site, e.g. http://example.com
 lang: en
@@ -37,9 +35,8 @@ google_analytics: "G-XHFF332CDW"  # ← replace with your ID
 # Build settings
 theme: minima
 minima:
-  skin: auto
-  nav_pages:
-    - about.md
+  skin: classic
+  nav_pages: []
   social_links:
     - title: "LinkedIn"
       icon: "linkedin"
