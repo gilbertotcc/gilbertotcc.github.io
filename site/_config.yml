@@ -29,6 +29,9 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://gilbertotaccari.com" # the base hostname & protocol for your site, e.g. http://example.com
 lang: en
 
+header_pages:
+  - thought-leadership.md
+
 # Analytics
 google_analytics: "G-XHFF332CDW"  # ← replace with your ID
 
@@ -36,7 +39,6 @@ google_analytics: "G-XHFF332CDW"  # ← replace with your ID
 theme: minima
 minima:
   skin: classic
-  nav_pages: []
   social_links:
     - title: "LinkedIn"
       icon: "linkedin"
