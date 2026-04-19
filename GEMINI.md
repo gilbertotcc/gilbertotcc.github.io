@@ -85,6 +85,16 @@ specific files. Always refer to these before proceeding with related tasks:
   blog entries named `YYYY-MM-DD-title.md`.
 - **Formatting:** Adhere to `.markdownlint-cli2.yaml` rules.
 - **Links:** Verify all links using `lychee` (configured in `lychee.toml`).
+- **Thought Leadership Data:** The data for the "Thought Leadership" page is stored
+  in `site/_data/publications.yml`, `site/_data/speaking.yml`, and
+  `site/_data/reviews.yml`. These files are populated from the
+  `curriculum-vitae` submodule. To update them:
+  1. Sync the submodule: `git submodule update --remote curriculum-vitae`.
+  2. Read `curriculum-vitae/publications.bib` and
+     `curriculum-vitae/knowledge/03-knowledge-base.md`.
+  3. Extract the academic publications, speaking appearances, and manuscript
+     reviews.
+  4. Update the corresponding YAML files in `site/_data/`.
 - **LLM Context:** `llms.txt` provides a machine-readable summary of the site
   for LLMs, including site metadata, page links, and social information. It is
   dynamically generated using Jekyll.
@@ -118,7 +128,7 @@ specific files. Always refer to these before proceeding with related tasks:
 
 - **Metadata:** Title, author, description, and URL are set here.
 - **Navigation:** Main header links are explicitly defined in
-  `minima.nav_pages` to exclude administrative pages like the Privacy Policy.
+  `header_pages` to exclude administrative pages like the Privacy Policy.
 - **Plugins:** `jekyll-feed` is used for RSS generation.
 - **Social Links:** LinkedIn and GitHub links are configured under
   `minima.social_links`.

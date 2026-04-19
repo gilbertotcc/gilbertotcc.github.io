@@ -1,4 +1,4 @@
-119
+122
 ADR/S
 API/S
 Backend/S
@@ -50,6 +50,7 @@ YAML/S
 adr/S
 ai
 api/S
+booktitle
 cli/S
 cli2
 codeloaddotenvcode
@@ -63,6 +64,7 @@ dev/S
 dic/S
 direnv
 dotenv
+endfor
 endif
 env/S
 envrc
@@ -118,3 +120,4 @@ microservices
 RESTful
 scaleups
 SME/S
+organization
