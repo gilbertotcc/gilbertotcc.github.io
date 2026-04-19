@@ -79,7 +79,7 @@ specific files. Always refer to these before proceeding with related tasks:
 
 ### Content Management
 
-- **Pages:** Standard pages like `index.md`, `about.md`, and `privacy.md` use
+- **Pages:** Standard pages like `index.md` and `privacy.md` use
   Front Matter for layout and metadata.
 - **Posts:** Although currently empty, a `_posts/` directory can be created for
   blog entries named `YYYY-MM-DD-title.md`.
@@ -150,7 +150,6 @@ specific files. Always refer to these before proceeding with related tasks:
 - `site/_config.yml`: Site-wide settings and plugin configuration.
 - `site/_includes/`: Custom and overridden theme components (e.g., `head.html`,
   `footer.html`, `google-analytics.html`, `cookiebot.html`).
-- `site/about.md`: About page (uses `page` layout).
 - `site/index.md`: Homepage (uses `home` layout).
 - `site/llms.txt`: LLM-friendly site summary.
 - `site/privacy.md`: GDPR-compliant Privacy Policy page.
