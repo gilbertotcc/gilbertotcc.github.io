@@ -4,13 +4,14 @@
 
 This project is the source code for Gilberto Taccari's personal website and
 blog, hosted at [gilbertotaccari.com](https://gilbertotaccari.com).
-It is built using **Jekyll**, a static site generator, and utilizes the
-**Minima** theme.
+It is built using **Astro**, a modern web framework, utilising TypeScript
+and standard web primitives.
 
 ### Key Technologies
 
-- **Jekyll**: Static site generator (Ruby-based).
-- **Minima**: The default Jekyll theme (pinned via `Gemfile`).
+- **Astro**: Static site generator and web framework.
+- **TypeScript**: Static typing for configuration and endpoints.
+- **Node.js**: JavaScript runtime environment (v22+).
 - **GitHub Pages**: Hosting platform.
 - **GitHub Actions**: Automated workflows for linting, link checking, and
   deployment.
@@ -19,60 +20,41 @@ It is built using **Jekyll**, a static site generator, and utilizes the
 
 ### Prerequisites
 
-- **Ruby**: Version `3.3` (as specified in GitHub Actions).
-- **Bundler**: `gem install bundler`.
+- **Node.js**: Version `22+`.
+- **npm**: Package manager.
 
 ### Commands
 
 - **Install dependencies:**
 
   ```sh
-  # For Jekyll (legacy)
-  bundle install
-
-  # For Astro (new)
-  cd astro-site && npm install
+  cd site && npm install
   ```
 
 - **Local development server:**
 
   ```sh
-  # For Jekyll (legacy)
-  bundle exec jekyll serve --source site
-
-  # For Astro (new)
-  cd astro-site && npm run dev
+  cd site && npm run dev
   ```
 
-  Access the Jekyll site at `http://localhost:4000` or the Astro site at
-  `http://localhost:4321`. Use `--livereload` for automatic updates in Jekyll.
+  Access the site at `http://localhost:4321`.
 
 - **Build the site:**
 
   ```sh
-  # For Jekyll (legacy)
-  bundle exec jekyll build --source site
-
-  # For Astro (new)
-  cd astro-site && npm run build
+  cd site && npm run build
   ```
 
-  For production builds (which enable Cookiebot and Google Analytics), use:
+- **Preview the production build locally:**
 
   ```sh
-  JEKYLL_ENV=production bundle exec jekyll build --source site
-  ```
-
-- **Preview the build (Astro only):**
-
-  ```sh
-  cd astro-site && npm run preview
+  cd site && npm run preview
   ```
 
 - **Astro CLI:**
 
   ```sh
-  cd astro-site && npm run astro -- --help
+  cd site && npm run astro -- --help
   ```
 
 ## Development Conventions
@@ -103,121 +85,84 @@ specific files. Always refer to these before proceeding with related tasks:
 
 ### Content Management
 
-- **Pages:** Standard pages like `index.md` and `privacy.md` use
-  Front Matter for layout and metadata.
-
-  **Astro (New)**
-  Astro uses file-based routing: files in `astro-site/src/pages/` automatically
-  become routes (e.g., `src/pages/about.astro` is served at `/about`).
+- **Pages:** Astro uses file-based routing. Files in `site/src/pages/`
+  automatically become routes (e.g., `src/pages/about.astro` is served at
+  `/about`).
   - Use `.astro` files for pages with HTML structure or dynamic data (e.g.,
     `index.astro`, `thought-leadership.astro`).
   - Use `.md` files only for long-form prose with no dynamic content (e.g.,
     `privacy.md`).
   - All pages wrap their content with the `<BaseLayout>` component to ensure
-    consistent structure, SEO, and analytics.
-- **Posts:** Although currently empty, a `_posts/` directory can be created for
-  blog entries named `YYYY-MM-DD-title.md`.
+    consistent structure, SEO, and analytics. Frontmatter props (like `title`
+    and `description`) are passed to the layout.
+- **Posts:** Although currently empty, a blog architecture can be added in the
+  future using Astro's Content Collections.
 - **Formatting:** Adhere to `.markdownlint-cli2.yaml` rules.
 - **Links:** Verify all links using `lychee` (configured in `lychee.toml`).
 - **Thought Leadership Data:** The data for the "Thought Leadership" page is stored
-  in `astro-site/src/data/publications.yml`, `astro-site/src/data/reviews.yml`, and
-  `astro-site/src/data/speaking.yml`. These files are populated from the
+  in `site/src/data/publications.yml`, `site/src/data/reviews.yml`, and
+  `site/src/data/speaking.yml`. These files are populated from the
   `curriculum-vitae` submodule. To update them:
-  1. Sync the submodule: `git submodule update --remote curriculum-vitae`.
+  1. Sync the submodule: `git submodule update --remote curriculum-vitae` (done
+     only during active editing, never in CI/CD).
   2. Read `curriculum-vitae/publications.bib` and
      `curriculum-vitae/knowledge/03-knowledge-base.md`.
   3. Extract the academic publications, speaking appearances, and manuscript
      reviews.
-  4. Update the corresponding YAML files in `astro-site/src/data/`.
-
-  **Astro (New)**
-  Astro uses Content Collections to manage this data. The collections are
-  defined in `astro-site/src/content.config.ts` using Zod schemas for
-  type-safe validation. The collections (`publications`, `reviews`,
-  `speaking`) point directly to the YAML files in `astro-site/src/data/`.
+  4. Update the corresponding YAML files in `site/src/data/`.
+- **Content Collections:** Astro uses Content Collections to manage the Thought
+  Leadership data. The collections are defined in `site/src/content.config.ts`
+  using Zod schemas for type-safe validation. The collections (`publications`,
+  `reviews`, `speaking`) point directly to the YAML files in `site/src/data/`.
 - **LLM Context:** `llms.txt` provides a machine-readable summary of the site
-  for LLMs, including site metadata, page links, and social information. It is
-  dynamically generated using Jekyll.
-
-  **Astro (New)**
-  `llms.txt` is implemented as an API endpoint at
-  `astro-site/src/pages/llms.txt.ts`. It adheres to the `llmstxt.org`
-  specification (H1 title, blockquote summary, H2 file lists). To update its
-  content, edit the string array in the `GET` function. Any `.ts` file in
-  `src/pages/` exporting a `GET` function becomes a static file at build time.
+  for LLMs, including site metadata, page links, and social information.
+  It is implemented as an API endpoint at `site/src/pages/llms.txt.ts`. It
+  adheres to the `llmstxt.org` specification (H1 title, blockquote summary, H2
+  file lists). To update its content, edit the string array in the `GET`
+  function. Any `.ts` file in `src/pages/` exporting a `GET` function becomes a
+  static file at build time.
 - **AI Context Submodule:** A private submodule `curriculum-vitae` is used to
   provide personal data as context for LLM-assisted development.
-  - **Syncing:** The submodule tracks the `main` branch. Use
-    `git submodule update --remote curriculum-vitae` to sync.
-  - **Privacy:** This directory is outside the `site/` directory to
-    ensure it is never processed by Jekyll or published to the website.
+  - **Privacy:** This directory is strictly local/private and is never processed
+    by Astro or published to the website.
 
-### Theme Customisation
+### Layout and Styling
 
-- **Theme:** The site uses the **Minima** theme. Configuration is in
-  `_config.yml` under the `minima:` key.
-- **Skins:** Supported skins include `light`, `dark`, and `auto` (detects system
-  preference).
-- **Overriding:** To override theme layouts or includes, create a local
-  directory (e.g., `site/_layouts/` or `site/_includes/`) and copy the theme's
-  file there.
-  Currently, `footer.html`, `head.html`, and `google-analytics.html` are
-  overridden. Use `bundle info minima --path` to find the source files.
-- **Head Customisation:** The `site/_includes/head.html` file is overridden to
-  inject Cookiebot (consent management) and Google Analytics 4 tracking.
-- **Privacy & Analytics:** Google Analytics 4
-  (`site/_includes/google-analytics.html`) is strictly controlled by Cookiebot.
-  Scripts use `type="text/plain"` and `data-cookieconsent="statistics"` to
-  prevent execution until explicit consent is granted, ensuring GDPR compliance
-  regarding international data transfers.
-
-  **Astro (New)**
-  In Astro, `BaseLayout.astro` is the single source of layout truth. All pages
-  wrap their content with `<BaseLayout title="..." description="...">`. No
-  theme requires overriding.
-  The production environment in Astro is gated using `import.meta.env.PROD`
-  (which is true during `npm run build`), replacing `JEKYLL_ENV=production`.
+- **Base Layout:** `site/src/layouts/BaseLayout.astro` is the single source of
+  layout truth. All pages wrap their content with
+  `<BaseLayout title="..." description="...">`.
+- **CSS:** Global styles and design tokens (variables for typography, colours,
+  spacing) are defined in `site/src/styles/global.css`.
+- **Third-party Services:** Cookiebot (consent management) and Google Analytics 4
+  tracking scripts are injected via `BaseLayout.astro`.
+- **Environment:** The production environment is gated using
+  `import.meta.env.PROD` (which is true during `npm run build`). This prevents
+  analytics from running during local development.
 
 ### Configuration
 
-**Astro (`astro-site/src/config.ts`)**
-Site-wide values are now typed TypeScript constants, ensuring type safety and
-IDE autocompletion, not YAML.
-
-- **Metadata:** Title, author, description, lang, and URL are set here.
-- **Analytics:** Google Analytics 4 and Cookiebot IDs are configured here.
-- **Social Links:** LinkedIn and GitHub links are configured in the `social` object.
-
-**Jekyll (`site/_config.yml`)**
-
-- **Metadata:** Title, author, description, and URL are set here.
-- **Navigation:** Main header links are explicitly defined in
-  `header_pages` to exclude administrative pages like the Privacy Policy.
-- **Plugins:** `jekyll-feed` is used for RSS generation.
-- **Social Links:** LinkedIn and GitHub links are configured under
-  `minima.social_links`.
-- **Analytics:** The `google_analytics` property holds the GA4 Measurement ID.
+- **Site Settings:** Site-wide values are typed TypeScript constants defined in
+  `site/src/config.ts`, ensuring type safety and IDE autocompletion.
+  - **Metadata:** Title, author, description, lang, and URL.
+  - **Analytics:** Google Analytics 4 and Cookiebot IDs.
+  - **Social Links:** LinkedIn and GitHub links.
 
 ### CI/CD and Quality Assurance
 
 - **Markdown Linting:** Pull requests trigger `markdownlint-cli2` via GitHub
   Actions (`check-markdown-files.yml`).
-- **Link Checking:** `lychee` verifies links in Markdown files.
+- **Link Checking:** `lychee` verifies links in Markdown, HTML, and Astro files.
 - **Spell Checking:** You MUST validate any changes to Markdown (`.md`), HTML
   (`.html`), or Astro (`.astro`) files by running
   `./scripts/run_spell_check.sh`. Note that this script currently excludes
-  technical directories (e.g., `vendor/`, `_site/`) from analysis.
-  If it flags a correctly spelled word, add it to `hunspell/custom.dic` and
-  update the word count on the first line.
+  technical directories (e.g., `dist/`) from analysis and smartly ignores
+  code snippets. If it flags a correctly spelled word, add it to
+  `hunspell/custom.dic` and update the word count on the first line.
 - **Dependabot:** Automated dependency updates are managed by Dependabot,
-  covering both legacy Ruby `bundler` dependencies and new Astro `npm`
-  dependencies under `astro-site/`.
-- **Deployment (Jekyll - Legacy):** Automatic deployment to GitHub Pages on
-  pushes to the `main` branch (`jekyll-gh-pages.yml`). This uses the legacy
-  "Deploy from a branch" method.
-- **Deployment (Astro - New):** Automatic deployment to GitHub Pages on pushes
-  to the `main` branch (`deploy.yml`). It uses the official Astro deployment
-  action, uploading an artifact and bypassing branch-based deployment.
+  covering the `npm` ecosystem under the `site/` directory.
+- **Deployment:** Automatic deployment to GitHub Pages on pushes to the `main`
+  branch (`deploy.yml`). It uses the official Astro deployment action,
+  uploading an artifact and bypassing branch-based deployment.
   **Manual Step Required:** In GitHub repository Settings → Pages, the Source
   must be set to "GitHub Actions".
 
@@ -226,16 +171,11 @@ IDE autocompletion, not YAML.
 - `.gemini/settings.json`: Configuration for AI agents and MCP servers.
 - `.github/workflows/`: CI/CD pipeline definitions.
 - `.markdownlint-cli2.yaml` & `lychee.toml`: QA tool configurations.
-- `Gemfile`: Ruby dependencies (Jekyll, Minima, plugins).
 - `hunspell/`: Custom dictionary and configuration for spell checking.
 - `scripts/`: Utility scripts, including `run_spell_check.sh`.
-- `site/404.html`: Custom error page.
-- `site/_config.yml`: Site-wide settings and plugin configuration.
-- `site/_includes/`: Custom and overridden theme components (e.g., `head.html`,
-  `footer.html`, `google-analytics.html`, `cookiebot.html`).
-- `site/index.md`: Homepage (uses `home` layout).
-- `site/llms.txt`: LLM-friendly site summary.
-- `site/privacy.md`: GDPR-compliant Privacy Policy page.
-- `astro-site/`: New Astro-based website (under development).
-- `astro-site/public/`: Static files copied verbatim to the build output.
+- `site/`: Astro website source files.
+  - `public/`: Static files copied verbatim to the build output.
+  - `src/`: Source code including components, content collections, pages, and styles.
+  - `dist/`: Build output directory (generated).
+- `curriculum-vitae/`: Private submodule with personal context for AI agents.
 - `terraform/`: Infrastructure as Code configuration.
