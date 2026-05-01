@@ -5,6 +5,13 @@ This repository contains the source files for Gilberto’s personal website at
 The project is built with Astro.
 Use is permitted under the license terms below.
 
+## Prerequisites
+
+To build and run this project, you need:
+
+- **Node.js**: Version `22+`.
+- **npm**: Package manager.
+
 ## Usage
 
 To set up and run the Astro site locally:
@@ -26,13 +33,16 @@ npm run build
 npm run preview
 ```
 
-Key paths to verify:
+Key paths and configuration:
 
-- `/` (Home)
-- `/thought-leadership` (Dynamic collections)
-- `/privacy` (Prose content)
-- `/llms.txt` (API endpoint)
-- `/sitemap-index.xml` (Generated sitemap)
+- `/` (Home): Served from `site/src/pages/index.astro`.
+- `/thought-leadership`: Dynamic collections using data from `site/src/data/`.
+- `/privacy`: Prose content from `site/src/pages/privacy.md`.
+- `/llms.txt`: Generated from the TypeScript endpoint at `site/src/pages/llms.txt.ts`.
+- `site/src/config.ts`: Central configuration for site metadata and service IDs.
+- `site/src/layouts/BaseLayout.astro`: The single source of layout truth for all
+  pages.
+- `/sitemap-index.xml`: Generated sitemap.
 
 Additional commands:
 
@@ -137,6 +147,17 @@ Here is a list of them as a reference to speed up website setup and maintenance.
 - [Google Analytics 4](https://developers.google.com/analytics?hl=en): Website
   traffic analytics.
 
+## CI/CD and Deployment
+
+The project uses GitHub Actions for continuous integration and deployment:
+
+- **Quality Assurance**: Automated workflows for linting
+  (`check-markdown-files.yml`), spell checking (`spell-check.yml`), and link
+  checking.
+- **Deployment**: Automatic deployment to GitHub Pages on pushes to the `main`
+  branch (`deploy.yml`). It uses the official Astro deployment action to build
+  and upload the site artifact.
+
 ## Infrastructure as Code
 
 The infrastructure required to make the website work is configured using an
@@ -148,6 +169,11 @@ See [Infrastructure as Code](terraform/README.md) for details.
 - `curriculum-vitae/`: Private submodule with personal context for AI agents.
 - `site/`: Astro website source files.
   - `public/`: Static files copied verbatim to the build output.
+  - `src/`: Source code including components, content collections, pages, and styles.
+    - `components/`: Reusable Astro components.
+    - `data/`: Source YAML files for content collections.
+    - `layouts/`: Page layouts (e.g., `BaseLayout.astro`).
+    - `pages/`: File-based routing (Astro, Markdown, and TypeScript endpoints).
 - `terraform/`: Infrastructure as Code configuration.
 
 ## Tips & Tricks
