@@ -204,12 +204,15 @@ IDE autocompletion, not YAML.
 - **Markdown Linting:** Pull requests trigger `markdownlint-cli2` via GitHub
   Actions (`check-markdown-files.yml`).
 - **Link Checking:** `lychee` verifies links in Markdown files.
-- **Spell Checking:** You MUST validate any changes to Markdown (`.md`) or HTML
-  (`.html`) files by running `./scripts/run_spell_check.sh`. Note that this
-  script currently excludes technical directories (e.g., `vendor/`, `_site/`)
-  from analysis.
+- **Spell Checking:** You MUST validate any changes to Markdown (`.md`), HTML
+  (`.html`), or Astro (`.astro`) files by running
+  `./scripts/run_spell_check.sh`. Note that this script currently excludes
+  technical directories (e.g., `vendor/`, `_site/`) from analysis.
   If it flags a correctly spelled word, add it to `hunspell/custom.dic` and
   update the word count on the first line.
+- **Dependabot:** Automated dependency updates are managed by Dependabot,
+  covering both legacy Ruby `bundler` dependencies and new Astro `npm`
+  dependencies under `astro-site/`.
 - **Deployment:** Automatic deployment to GitHub Pages on pushes to the `main`
   branch (`jekyll-gh-pages.yml`).
 

@@ -1,4 +1,4 @@
-135
+137
 ADR/S
 API/S
 Astro/S
@@ -17,6 +17,7 @@ DDD
 DPF
 DPO
 DNSes
+Dependabot
 Fabrick
 GCP
 GCS
@@ -90,6 +91,7 @@ hunspell
 infinitec
 init
 io
+isProd
 jekyll/S
 json
 lang
