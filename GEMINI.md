@@ -213,8 +213,14 @@ IDE autocompletion, not YAML.
 - **Dependabot:** Automated dependency updates are managed by Dependabot,
   covering both legacy Ruby `bundler` dependencies and new Astro `npm`
   dependencies under `astro-site/`.
-- **Deployment:** Automatic deployment to GitHub Pages on pushes to the `main`
-  branch (`jekyll-gh-pages.yml`).
+- **Deployment (Jekyll - Legacy):** Automatic deployment to GitHub Pages on
+  pushes to the `main` branch (`jekyll-gh-pages.yml`). This uses the legacy
+  "Deploy from a branch" method.
+- **Deployment (Astro - New):** Automatic deployment to GitHub Pages on pushes
+  to the `main` branch (`deploy.yml`). It uses the official Astro deployment
+  action, uploading an artifact and bypassing branch-based deployment.
+  **Manual Step Required:** In GitHub repository Settings → Pages, the Source
+  must be set to "GitHub Actions".
 
 ## Project Structure
 
