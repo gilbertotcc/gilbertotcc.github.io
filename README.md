@@ -42,6 +42,7 @@ npm run preview
 ```
 
 Key paths to verify:
+
 - `/` (Home)
 - `/thought-leadership` (Dynamic collections)
 - `/privacy` (Prose content)
