@@ -29,6 +29,26 @@ cd astro-site && npm install
 npm run dev
 ```
 
+#### Local verification
+
+Before deploying, you can serve the final production build locally to verify
+that production-only features (like analytics and consent banners) are working
+correctly:
+
+```sh
+cd astro-site
+npm run build
+npm run preview
+```
+
+Key paths to verify:
+
+- `/` (Home)
+- `/thought-leadership` (Dynamic collections)
+- `/privacy` (Prose content)
+- `/llms.txt` (API endpoint)
+- `/sitemap-index.xml` (Generated sitemap)
+
 Additional commands:
 
 - **Build:** `npm run build` (outputs to `./dist/`)
