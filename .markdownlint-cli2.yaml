@@ -13,6 +13,5 @@ config:
   MD040: false
 gitignore: true
 globs:
-  - "site/**/*.md"
-  - "astro-site/src/**/*.md"
+  - "site/src/**/*.md"
   - "*.md"
