@@ -1,0 +1,101 @@
+---
+import { SITE } from '../config';
+
+export interface Props {
+  title: string;
+  description: string;
+  canonicalUrl?: string;
+}
+
+const { title, description, canonicalUrl } = Astro.props;
+
+// Use Astro.url to build an absolute URL if one is not provided.
+const canonicalURL = canonicalUrl || new URL(Astro.url.pathname, Astro.site || Astro.url.origin).href;
+
+const isProd = import.meta.env.PROD;
+---
+<html lang={SITE.lang}>
+  <head>
+    {isProd && (
+      <>
+        <!-- Cookiebot -->
+        <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid={SITE.cookiebotId} data-blockingmode="auto" type="text/javascript" is:inline></script>
+        <!-- Google Consent Mode (GCM) -->
+        <script data-cookieconsent="ignore" is:inline>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag("consent", "default", { ad_personalization: "denied", ad_storage: "denied", ad_user_data: "denied", analytics_storage: "denied", functionality_storage: "denied", personalization_storage: "denied", security_storage: "granted", wait_for_update: 500, }); gtag("set", "ads_data_redaction", true); gtag("set", "url_passthrough", false);</script>
+      </>
+    )}
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:site_name" content={SITE.title} />
+    <meta property="og:type" content="website" />
+
+    <!-- Font Awesome -->
+    <link id="fa-stylesheet" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.0.0/css/all.min.css" />
+
+    {isProd && (
+      <>
+        <!-- Google Analytics 4 — Cookiebot-controlled -->
+        <script
+          type="text/plain"
+          data-cookieconsent="statistics"
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${SITE.googleAnalyticsId}`}
+          is:inline
+        ></script>
+        <script type="text/plain" data-cookieconsent="statistics" define:vars={{ gaId: SITE.googleAnalyticsId }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', gaId, {
+            'anonymize_ip': true
+          });
+        </script>
+      </>
+    )}
+  </head>
+  <body>
+    <slot />
+
+    <footer class="site-footer h-card">
+      <data class="u-url" value="/"></data>
+
+      <div class="wrapper">
+        <div class="footer-col-wrapper">
+          <div class="footer-col">
+            {SITE.author && (
+              <ul class="contact-list">
+                {SITE.author.name && <li class="p-name">{SITE.author.name}</li>}
+              </ul>
+            )}
+          </div>
+          <div class="footer-col">
+            <p>{SITE.description}</p>
+            <p>
+              <a href="/privacy">Privacy Policy</a>
+              •
+              <a href="javascript:Cookiebot.renew()">Cookie Settings</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="social-links">
+          <ul class="social-media-list">
+            {SITE.social.linkedin && <li><a href={SITE.social.linkedin}><i class="fab fa-linkedin"></i> LinkedIn</a></li>}
+            {SITE.social.github && <li><a href={SITE.social.github}><i class="fab fa-github"></i> GitHub</a></li>}
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -119,8 +119,14 @@ GITHUB_PAT=your_github_personal_access_token_here
 ## Third-party services
 
 The website uses third-party services to accomplish certain use cases.
+
+**Jekyll (Legacy)**
 These services are only active when the site is built with the
 `JEKYLL_ENV=production` environment variable.
+
+**Astro (New)**
+These services are conditionally loaded based on `import.meta.env.PROD`, which
+is automatically set to true when running `npm run build`.
 
 Here is a list of them as a reference to speed up website setup and maintenance.
 
