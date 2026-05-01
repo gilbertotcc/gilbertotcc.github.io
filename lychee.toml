@@ -2,7 +2,13 @@ extensions = ["md", "astro", "html"]
 
 exclude_loopback = true
 
+exclude = [
+  '\{\{.*\}\}',
+  '\{%.*\%\}'
+]
+
 exclude_path = [
   "terraform/**/*.md",
-  "vendor/bundle"
+  "vendor/bundle",
+  "site/_includes"
 ]
