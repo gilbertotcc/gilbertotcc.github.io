@@ -1,10 +1,13 @@
 # gilbertotcc.github.io
 
 This repository contains the source files for Gilberto’s personal website at
-<https://gilbertotaccari.com>, built with Jekyll.
+<https://gilbertotaccari.com>.
+The project is currently transitioning from Jekyll to Astro.
 Use is permitted under the license terms below.
 
 ## Usage
+
+### Jekyll (Legacy)
 
 To set up the development environment, follow the instructions at
 <https://jekyllrb.com/docs/>.
@@ -14,6 +17,25 @@ Then use the following command to build and preview the website locally:
 ```sh
 bundle exec jekyll serve --source site
 ```
+
+### Astro (New)
+
+The new website is being built in the `astro-site/` directory.
+
+To set up and run the Astro site locally:
+
+```sh
+cd astro-site && npm install
+npm run dev
+```
+
+Additional commands:
+
+- **Build:** `npm run build` (outputs to `./dist/`)
+- **Preview:** `npm run preview`
+- **Astro CLI:** `npm run astro ...` (e.g., `astro add`, `astro check`)
+
+For more information, check the [Astro documentation](https://docs.astro.build).
 
 ## Quality Assurance
 
@@ -111,6 +133,13 @@ Here is a list of them as a reference to speed up website setup and maintenance.
 The infrastructure required to make the website work is configured using an
 Infrastructure as Code (IaC) approach.
 See [Infrastructure as Code](terraform/README.md) for details.
+
+## Repository Structure
+
+- `astro-site/`: New Astro-based website (under development).
+- `curriculum-vitae/`: Private submodule with personal context for AI agents.
+- `site/`: Legacy Jekyll website source files.
+- `terraform/`: Infrastructure as Code configuration.
 
 ## Tips & Tricks
 
