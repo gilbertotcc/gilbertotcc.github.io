@@ -1,4 +1,4 @@
-134
+135
 ADR/S
 API/S
 Astro/S
@@ -95,6 +95,7 @@ json
 lang
 livereload
 llms
+llmstxt
 localhost
 lychee
 macOS

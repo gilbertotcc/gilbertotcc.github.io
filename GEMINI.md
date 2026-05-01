@@ -139,6 +139,13 @@ specific files. Always refer to these before proceeding with related tasks:
 - **LLM Context:** `llms.txt` provides a machine-readable summary of the site
   for LLMs, including site metadata, page links, and social information. It is
   dynamically generated using Jekyll.
+
+  **Astro (New)**
+  `llms.txt` is implemented as an API endpoint at
+  `astro-site/src/pages/llms.txt.ts`. It adheres to the `llmstxt.org`
+  specification (H1 title, blockquote summary, H2 file lists). To update its
+  content, edit the string array in the `GET` function. Any `.ts` file in
+  `src/pages/` exporting a `GET` function becomes a static file at build time.
 - **AI Context Submodule:** A private submodule `curriculum-vitae` is used to
   provide personal data as context for LLM-assisted development.
   - **Syncing:** The submodule tracks the `main` branch. Use
