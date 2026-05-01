@@ -188,4 +188,5 @@ specific files. Always refer to these before proceeding with related tasks:
 - `site/llms.txt`: LLM-friendly site summary.
 - `site/privacy.md`: GDPR-compliant Privacy Policy page.
 - `astro-site/`: New Astro-based website (under development).
+- `astro-site/public/`: Static files copied verbatim to the build output.
 - `terraform/`: Infrastructure as Code configuration.

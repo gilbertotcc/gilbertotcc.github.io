@@ -137,6 +137,7 @@ See [Infrastructure as Code](terraform/README.md) for details.
 ## Repository Structure
 
 - `astro-site/`: New Astro-based website (under development).
+- `astro-site/public/`: Static files copied verbatim to the build output.
 - `curriculum-vitae/`: Private submodule with personal context for AI agents.
 - `site/`: Legacy Jekyll website source files.
 - `terraform/`: Infrastructure as Code configuration.
