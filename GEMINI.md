@@ -151,12 +151,15 @@ specific files. Always refer to these before proceeding with related tasks:
 ### Configuration
 
 **Astro (`astro-site/src/config.ts`)**
-Site-wide values are now typed TypeScript constants, ensuring type safety and IDE autocompletion, not YAML.
+Site-wide values are now typed TypeScript constants, ensuring type safety and
+IDE autocompletion, not YAML.
+
 - **Metadata:** Title, author, description, lang, and URL are set here.
 - **Analytics:** Google Analytics 4 and Cookiebot IDs are configured here.
 - **Social Links:** LinkedIn and GitHub links are configured in the `social` object.
 
 **Jekyll (`site/_config.yml`)**
+
 - **Metadata:** Title, author, description, and URL are set here.
 - **Navigation:** Main header links are explicitly defined in
   `header_pages` to exclude administrative pages like the Privacy Policy.
