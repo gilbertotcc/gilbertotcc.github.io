@@ -1,0 +1,55 @@
+- year: 2019
+  title: "Spring Security in Action"
+  link: "https://www.manning.com/books/spring-security-in-action"
+  author: "Laurentiu Spilca"
+  published: "Oct 2020"
+- year: 2019
+  title: "Spring Microservices in Action, Second Edition"
+  link: "https://www.manning.com/books/spring-microservices-in-action-second-edition"
+  author: "John Carnell and Illary Huaylupo Sánchez"
+  published: "Jun 2021"
+- year: 2019
+  title: "API Security in Action"
+  link: "https://www.manning.com/books/api-security-in-action"
+  author: "Neil Madden"
+  published: "Nov 2020"
+- year: 2019
+  title: "Pulsar in Action"
+  link: "https://www.manning.com/books/apache-pulsar-in-action"
+  author: "David Kjerrumgaard"
+  published: "Oct 2021"
+- year: 2020
+  title: "GitHub Actions in Action"
+  link: "https://www.manning.com/books/github-actions-in-action"
+  author: "M. Kaufmann, R. Ros, and M. de Vries"
+  published: "Early 2026"
+- year: 2022
+  title: "Amazon Web Services in Action, 3rd Edition"
+  link: "https://www.manning.com/books/amazon-web-services-in-action-third-edition"
+  author: "Andreas Wittig and Michael Wittig"
+  published: "Mar 2023"
+- year: 2022
+  title: "Functional Programming in Scala, Second Edition"
+  link: "https://www.manning.com/books/functional-programming-in-scala-second-edition"
+  author: "Michael Pilquist"
+  published: "May 2023"
+- year: 2023
+  title: "Architecture Modernization"
+  link: "https://www.manning.com/books/architecture-modernization"
+  author: "Nick Tune and Jean-Georges Perrin"
+  published: "Feb 2024"
+- year: 2023
+  title: "Think Like a Software Engineering Manager"
+  link: "https://www.manning.com/books/think-like-a-software-engineering-manager"
+  author: "Akanksha Gupta"
+  published: "Aug 2024"
+- year: 2024
+  title: "Data-Oriented Programming in Java"
+  link: "https://www.manning.com/books/data-oriented-programming-in-java"
+  author: "Chris Kiehl"
+  published: "Jun 2026"
+- year: 2024
+  title: "Automating API Delivery"
+  link: "https://www.manning.com/books/automating-api-delivery"
+  author: "Ikenna Nwaiwu"
+  published: "Jul 2024"

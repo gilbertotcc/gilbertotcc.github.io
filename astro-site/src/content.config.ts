@@ -1,8 +1,9 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
+import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
 
 const speaking = defineCollection({
-  loader: glob({ pattern: 'speaking.yml', base: '../site/_data' }),
+  loader: glob({ pattern: 'speaking.yml', base: './src/data' }),
   schema: z.array(z.object({
     date: z.string(),
     event: z.string(),
@@ -12,7 +13,7 @@ const speaking = defineCollection({
 });
 
 const reviews = defineCollection({
-  loader: glob({ pattern: 'reviews.yml', base: '../site/_data' }),
+  loader: glob({ pattern: 'reviews.yml', base: './src/data' }),
   schema: z.array(z.object({
     year: z.number(),
     title: z.string(),
@@ -23,7 +24,7 @@ const reviews = defineCollection({
 });
 
 const publications = defineCollection({
-  loader: glob({ pattern: 'publications.yml', base: '../site/_data' }),
+  loader: glob({ pattern: 'publications.yml', base: './src/data' }),
   schema: z.array(z.object({
     type: z.string(),
     id: z.string(),
