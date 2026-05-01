@@ -131,10 +131,10 @@ specific files. Always refer to these before proceeding with related tasks:
 - **Base Layout:** `site/src/layouts/BaseLayout.astro` is the single source of
   layout truth. All pages wrap their content with
   `<BaseLayout title="..." description="...">`.
-- **CSS:** Global styles and design tokens (variables for typography, colours,
-  spacing) are defined in `site/src/styles/global.css`.
 - **Third-party Services:** Cookiebot (consent management) and Google Analytics
-  4 tracking scripts are injected via `BaseLayout.astro`.
+  4 tracking scripts are modularised into dedicated components
+  (`Cookiebot.astro`, `GoogleAnalytics.astro`) and injected via `BaseLayout.astro`.
+- **CSS:** Global styles and design tokens (variables for typography, colours,
 - **Environment:** The production environment is gated using
   `import.meta.env.PROD` (which is true during `npm run build`). This prevents
   analytics from running during local development.
