@@ -39,9 +39,9 @@ Key paths and configuration:
 - `/thought-leadership`: Dynamic collections using data from `site/src/data/`.
 - `/privacy`: Prose content from `site/src/pages/privacy.md`.
 - `/llms.txt`: Generated from the TypeScript endpoint at `site/src/pages/llms.txt.ts`.
-- `site/src/config.ts`: Central configuration for site metadata and service IDs.
 - `site/src/layouts/BaseLayout.astro`: The single source of layout truth for all
-  pages.
+  pages. It modularises third-party service injection (Cookiebot, GA4) via
+  dedicated components.
 - `/sitemap-index.xml`: Generated sitemap.
 
 Additional commands:

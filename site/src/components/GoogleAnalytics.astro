@@ -1,0 +1,26 @@
+---
+interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+---
+
+<!-- Google Analytics 4 — Cookiebot-controlled -->
+<script
+  type="text/plain"
+  data-cookieconsent="statistics"
+  async
+  src={`https://www.googletagmanager.com/gtag/js?id=${id}`}
+  is:inline
+></script>
+<script type="text/plain" data-cookieconsent="statistics" define:vars={{ id }} is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', id, {
+    'anonymize_ip': true,
+  });
+</script>
