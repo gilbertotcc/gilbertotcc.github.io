@@ -27,28 +27,52 @@ It is built using **Jekyll**, a static site generator, and utilizes the
 - **Install dependencies:**
 
   ```sh
+  # For Jekyll (legacy)
   bundle install
+
+  # For Astro (new)
+  cd astro-site && npm install
   ```
 
 - **Local development server:**
 
   ```sh
+  # For Jekyll (legacy)
   bundle exec jekyll serve --source site
+
+  # For Astro (new)
+  cd astro-site && npm run dev
   ```
 
-  Access the site at `http://localhost:4000`. Use `--livereload` for automatic
-  updates.
+  Access the Jekyll site at `http://localhost:4000` or the Astro site at
+  `http://localhost:4321`. Use `--livereload` for automatic updates in Jekyll.
 
 - **Build the site:**
 
   ```sh
+  # For Jekyll (legacy)
   bundle exec jekyll build --source site
+
+  # For Astro (new)
+  cd astro-site && npm run build
   ```
 
   For production builds (which enable Cookiebot and Google Analytics), use:
 
   ```sh
   JEKYLL_ENV=production bundle exec jekyll build --source site
+  ```
+
+- **Preview the build (Astro only):**
+
+  ```sh
+  cd astro-site && npm run preview
+  ```
+
+- **Astro CLI:**
+
+  ```sh
+  cd astro-site && npm run astro -- --help
   ```
 
 ## Development Conventions
@@ -163,4 +187,5 @@ specific files. Always refer to these before proceeding with related tasks:
 - `site/index.md`: Homepage (uses `home` layout).
 - `site/llms.txt`: LLM-friendly site summary.
 - `site/privacy.md`: GDPR-compliant Privacy Policy page.
+- `astro-site/`: New Astro-based website (under development).
 - `terraform/`: Infrastructure as Code configuration.

@@ -1,6 +1,7 @@
-122
+129
 ADR/S
 API/S
+Astro/S
 Backend/S
 CD/S
 CI/S
@@ -37,6 +38,7 @@ NonCommercial
 OpenTofu
 PORKBUN
 Porkbun
+Preact/S
 PSD/S
 PSD2
 Penta
@@ -46,11 +48,14 @@ README/S
 Taccari's
 Tot
 Venezia
+Vue/S
 YAML/S
 adr/S
 ai
 api/S
+astro
 booktitle
+cd
 cli/S
 cli2
 codeloaddotenvcode
@@ -92,6 +97,7 @@ macOS
 markdownlint
 md
 nav
+npm
 organizational
 personali
 plugin/S
@@ -99,6 +105,7 @@ protezione
 repo/S
 rigor
 seo
+src
 startup/S
 sudo
 taccari/P
