@@ -1,4 +1,4 @@
-129
+132
 ADR/S
 API/S
 Astro/S
@@ -46,6 +46,7 @@ Qonto
 UptimeRobot/S
 README/S
 Taccari's
+TypeScript
 Tot
 Venezia
 Vue/S
@@ -89,6 +90,7 @@ init
 io
 jekyll/S
 json
+lang
 livereload
 llms
 localhost
@@ -111,6 +113,7 @@ sudo
 taccari/P
 tf
 toml
+ts
 tot
 txt
 url/S
