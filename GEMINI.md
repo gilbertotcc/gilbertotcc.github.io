@@ -105,6 +105,16 @@ specific files. Always refer to these before proceeding with related tasks:
 
 - **Pages:** Standard pages like `index.md` and `privacy.md` use
   Front Matter for layout and metadata.
+
+  **Astro (New)**
+  Astro uses file-based routing: files in `astro-site/src/pages/` automatically
+  become routes (e.g., `src/pages/about.astro` is served at `/about`).
+  - Use `.astro` files for pages with HTML structure or dynamic data (e.g.,
+    `index.astro`, `thought-leadership.astro`).
+  - Use `.md` files only for long-form prose with no dynamic content (e.g.,
+    `privacy.md`).
+  - All pages wrap their content with the `<BaseLayout>` component to ensure
+    consistent structure, SEO, and analytics.
 - **Posts:** Although currently empty, a `_posts/` directory can be created for
   blog entries named `YYYY-MM-DD-title.md`.
 - **Formatting:** Adhere to `.markdownlint-cli2.yaml` rules.
