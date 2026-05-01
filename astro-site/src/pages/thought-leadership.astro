@@ -16,103 +16,105 @@ const description = "Contributions to the technology and fintech sectors, includ
 ---
 
 <BaseLayout title={title} description={description}>
-  <main class="page-content" aria-label="Content">
-    <div class="wrapper">
-      <article class="post">
-        <header class="post-header">
-          <h1 class="post-title">{title}</h1>
-        </header>
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">{title}</h1>
+    </header>
 
-        <div class="post-content">
-          <p>
-            This page showcases my contributions to the technology and fintech sectors,
-            including public speaking, technical reviews, and academic research.
-          </p>
+    <div class="post-content">
+      <p>
+        This page showcases my contributions to the technology and fintech sectors,
+        including public speaking, technical reviews, and academic research.
+      </p>
 
-          <section>
-            <h2>Speaking Appearances</h2>
-            <table>
-              <thead>
+      <section>
+        <h2>Speaking Appearances</h2>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Event</th>
+                <th>Role</th>
+                <th>Topic</th>
+              </tr>
+            </thead>
+            <tbody>
+              {speaking.map((talk) => (
                 <tr>
-                  <th style="text-align: left">Date</th>
-                  <th style="text-align: left">Event</th>
-                  <th style="text-align: left">Role</th>
-                  <th style="text-align: left">Topic</th>
+                  <td>{talk.date}</td>
+                  <td>{talk.event}</td>
+                  <td>{talk.role}</td>
+                  <td>{talk.topic}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {speaking.map((talk) => (
-                  <tr>
-                    <td style="text-align: left">{talk.date}</td>
-                    <td style="text-align: left">{talk.event}</td>
-                    <td style="text-align: left">{talk.role}</td>
-                    <td style="text-align: left">{talk.topic}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </section>
-
-          <section>
-            <h2>Manuscript Reviews</h2>
-            <p>Technical reviews for <strong>Manning Publications</strong> since 2019.</p>
-            <table>
-              <thead>
-                <tr>
-                  <th style="text-align: left">Year</th>
-                  <th style="text-align: left">Title</th>
-                  <th style="text-align: left">Author</th>
-                  <th style="text-align: left">Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                {reviews.map((review) => (
-                  <tr>
-                    <td style="text-align: left">{review.year}</td>
-                    <td style="text-align: left">
-                      <a href={review.link}>{review.title}</a>
-                    </td>
-                    <td style="text-align: left">{review.author}</td>
-                    <td style="text-align: left">Pub. {review.published}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </section>
-
-          <section>
-            <h2>Academic Publications</h2>
-            <p>
-              My research focuses on the Internet of Things (IoT), cloud computing, and formal
-              verification.
-            </p>
-            <table>
-              <thead>
-                <tr>
-                  <th style="text-align: left">Year</th>
-                  <th style="text-align: left">Title</th>
-                  <th style="text-align: left">Authors</th>
-                  <th style="text-align: left">Publication</th>
-                </tr>
-              </thead>
-              <tbody>
-                {publications.map((pub) => (
-                  <tr>
-                    <td style="text-align: left">{pub.year}</td>
-                    <td style="text-align: left">
-                      <strong>{pub.title}</strong>
-                    </td>
-                    <td style="text-align: left">{pub.author}</td>
-                    <td style="text-align: left">
-                      <em>{pub.booktitle || pub.journal || pub.school || pub.organization || pub.publisher}</em>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </section>
+              ))}
+            </tbody>
+          </table>
         </div>
-      </article>
+      </section>
+
+      <section>
+        <h2>Manuscript Reviews</h2>
+        <p>Technical reviews for <strong>Manning Publications</strong> since 2019.</p>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Year</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {reviews.map((review) => (
+                <tr>
+                  <td>{review.year}</td>
+                  <td>
+                    <a href={review.link}>{review.title}</a>
+                  </td>
+                  <td>{review.author}</td>
+                  <td>Pub. {review.published}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2>Academic Publications</h2>
+        <p>
+          My research focuses on the Internet of Things (IoT), cloud computing, and formal
+          verification.
+        </p>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Year</th>
+                <th>Title</th>
+                <th>Authors</th>
+                <th>Publication</th>
+              </tr>
+            </thead>
+            <tbody>
+              {publications.map((pub) => (
+                <tr>
+                  <td>{pub.year}</td>
+                  <td>
+                    <strong>{pub.title}</strong>
+                  </td>
+                  <td>{pub.author}</td>
+                  <td>
+                    <em>{pub.booktitle || pub.journal || pub.school || pub.organization || pub.publisher}</em>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
     </div>
-  </main>
+  </article>
 </BaseLayout>
