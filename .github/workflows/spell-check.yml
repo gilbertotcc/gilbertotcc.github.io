@@ -5,6 +5,7 @@ on:
     paths:
       - '**.md'
       - '**.html'
+      - '**.astro'
       - 'hunspell/**'
       - 'scripts/run_spell_check.sh'
       - '.github/workflows/spell-check.yml'

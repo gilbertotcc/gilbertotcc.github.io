@@ -41,8 +41,12 @@ For more information, check the [Astro documentation](https://docs.astro.build).
 
 ### Spell Check
 
-This project enforces spell checking on all Markdown (`.md`) and HTML (`.html`)
-files using `hunspell` and a British English dictionary (`en_GB`).
+This project enforces spell checking on all Markdown (`.md`), HTML (`.html`),
+and Astro (`.astro`) files using `hunspell` and a British English dictionary
+(`en_GB`).
+
+The check covers the legacy `site/` directory and the new `astro-site/src/`
+source files.
 
 #### Prerequisites
 
