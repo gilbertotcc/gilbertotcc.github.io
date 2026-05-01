@@ -155,6 +155,13 @@ specific files. Always refer to these before proceeding with related tasks:
   prevent execution until explicit consent is granted, ensuring GDPR compliance
   regarding international data transfers.
 
+  **Astro (New)**
+  In Astro, `BaseLayout.astro` is the single source of layout truth. All pages
+  wrap their content with `<BaseLayout title="..." description="...">`. No
+  theme requires overriding.
+  The production environment in Astro is gated using `import.meta.env.PROD`
+  (which is true during `npm run build`), replacing `JEKYLL_ENV=production`.
+
 ### Configuration
 
 **Astro (`astro-site/src/config.ts`)**
