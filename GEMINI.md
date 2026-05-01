@@ -110,8 +110,8 @@ specific files. Always refer to these before proceeding with related tasks:
 - **Formatting:** Adhere to `.markdownlint-cli2.yaml` rules.
 - **Links:** Verify all links using `lychee` (configured in `lychee.toml`).
 - **Thought Leadership Data:** The data for the "Thought Leadership" page is stored
-  in `site/_data/publications.yml`, `site/_data/speaking.yml`, and
-  `site/_data/reviews.yml`. These files are populated from the
+  in `site/_data/publications.yml`, `site/_data/reviews.yml`, and
+  `site/_data/speaking.yml`. These files are populated from the
   `curriculum-vitae` submodule. To update them:
   1. Sync the submodule: `git submodule update --remote curriculum-vitae`.
   2. Read `curriculum-vitae/publications.bib` and
@@ -119,6 +119,13 @@ specific files. Always refer to these before proceeding with related tasks:
   3. Extract the academic publications, speaking appearances, and manuscript
      reviews.
   4. Update the corresponding YAML files in `site/_data/`.
+
+  **Astro (New)**
+  Astro uses Content Collections to manage this data. The collections are
+  defined in `astro-site/src/content.config.ts` using Zod schemas for
+  type-safe validation. The collections (`publications`, `reviews`,
+  `speaking`) point directly to the legacy YAML files in `site/_data/` as
+  their source of truth, ensuring data consistency during the transition.
 - **LLM Context:** `llms.txt` provides a machine-readable summary of the site
   for LLMs, including site metadata, page links, and social information. It is
   dynamically generated using Jekyll.
