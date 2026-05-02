@@ -183,3 +183,146 @@ specific files. Always refer to these before proceeding with related tasks:
   - `dist/`: Build output directory (generated).
 - `curriculum-vitae/`: Private submodule with personal context for AI agents.
 - `terraform/`: Infrastructure as Code configuration.
+
+## GitHub Operations
+
+Use the `gh` CLI for all GitHub operations. Before running any `gh` command,
+verify authentication:
+
+```bash
+gh auth status
+```
+
+If not authenticated, run `gh auth login` and follow the prompts.
+
+---
+
+### Commits and Pushing
+
+```bash
+# Stage all changes and commit
+git add .
+git commit -m "type(scope): description"
+
+# Push current branch
+git push
+
+# Push and set upstream for a new branch
+git push --set-upstream origin <branch-name>
+```
+
+---
+
+### Pull Requests
+
+```bash
+# Create a PR (interactive)
+gh pr create --base main --title "Title" --body "Description"
+
+# Create a PR with a draft flag
+gh pr create --base main --title "Title" --draft
+
+# List open PRs
+gh pr list
+
+# View a specific PR
+gh pr view <pr-number>
+
+# Check out a PR locally
+gh pr checkout <pr-number>
+
+# Merge a PR (squash recommended for this repo)
+gh pr merge <pr-number> --squash --delete-branch
+
+# Request a review
+gh pr edit <pr-number> --add-reviewer <username>
+
+# Add a review comment
+gh pr review <pr-number> --comment --body "Your comment"
+
+# Approve a PR
+gh pr review <pr-number> --approve
+
+# Request changes on a PR
+gh pr review <pr-number> --request-changes --body "Explanation"
+
+# Close a PR without merging
+gh pr close <pr-number>
+```
+
+---
+
+### Issues
+
+```bash
+# Create an issue
+gh issue create --title "Title" --body "Description"
+
+# Create an issue and assign to yourself
+gh issue create --title "Title" --body "Description" --assignee @me
+
+# List open issues
+gh issue list
+
+# View a specific issue
+gh issue view <issue-number>
+
+# Add a comment to an issue
+gh issue comment <issue-number> --body "Your comment"
+
+# Edit issue title or body
+gh issue edit <issue-number> --title "New title"
+gh issue edit <issue-number> --body "New body"
+
+# Add or remove labels
+gh issue edit <issue-number> --add-label "bug"
+gh issue edit <issue-number> --remove-label "bug"
+
+# Close an issue
+gh issue close <issue-number>
+
+# Reopen an issue
+gh issue reopen <issue-number>
+```
+
+---
+
+### Repository and CI
+
+```bash
+# View repository details
+gh repo view
+
+# List recent workflow runs
+gh run list
+
+# View a specific workflow run
+gh run view <run-id>
+
+# Watch a running workflow in real time
+gh run watch <run-id>
+```
+
+---
+
+### Re-enabling Disabled Features
+
+Apply these changes to file `.gemini/settings.json`.
+
+**Checkpointing** (re-enable for long multi-session tasks):
+
+```json
+"general": { "checkpointing": { "enabled": true } }
+```
+
+Remember to disable it again after the task to avoid accumulating context across
+unrelated sessions.
+
+**Agents** (re-enable for fully autonomous multi-step tasks):
+
+```json
+"experimental": { "enableAgents": true }
+```
+
+Use this only when you need Gemini to autonomously plan and execute a complex
+multi-step task (e.g., full feature scaffolding). Disable again after use.

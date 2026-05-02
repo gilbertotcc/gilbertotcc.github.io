@@ -95,7 +95,7 @@ If `hunspell` flags a valid word, you can add it to the project's custom
 dictionary located at `hunspell/custom.dic`. Make sure to update the word count
 on the first line of the file after adding new words.
 
-## AI-Assisted Development (MCP)
+## AI-Assisted Development
 
 This project is configured to work with AI agents using the Model Context
 Protocol (MCP).
@@ -106,8 +106,9 @@ The configuration is stored in `.gemini/settings.json` and includes:
 
 - **Context7**: Provides up-to-date documentation and code examples for
   libraries and frameworks.
-- **GitHub Copilot**: Enables interaction with GitHub for pull requests, issues,
-  and repository management.
+
+For instructions on how Gemini CLI should interact with GitHub (issues, pull
+requests, commits), see [`GEMINI.md`](./GEMINI.md).
 
 ### Curriculum Vitae Context
 
@@ -121,14 +122,21 @@ To update the submodule to the latest version:
 git submodule update --remote curriculum-vitae
 ```
 
+### Prerequisites
+
+To use the AI assistant features, you need:
+
+- **`gh` CLI** installed and authenticated (`gh auth status`).
+- **`CONTEXT7_API_KEY`** environment variable set for library documentation
+  lookups.
+
 ### Configuration
 
-To use these servers, create a `.env` file in the root directory with your
+To use the MCP servers, create a `.env` file in the root directory with your
 credentials:
 
 ```env
 CONTEXT7_API_KEY=your_api_key_here
-GITHUB_PAT=your_github_personal_access_token_here
 ```
 
 > **Note**: Never commit your `.env` file. It is already included in
