@@ -1,0 +1,62 @@
+---
+import LinkedInIcon from '../icons/LinkedInIcon.svg';
+import GitHubIcon from '../icons/GitHubIcon.svg';
+
+interface Props {
+  social: {
+    linkedin?: string;
+    github?: string;
+  };
+}
+
+const { social } = Astro.props;
+
+function extractHandle(url: string) {
+  return url.replace(/\/$/, '').split('/').pop();
+}
+---
+
+<ul aria-label="Social media links">
+  {social.linkedin && (
+    <li>
+      <a href={social.linkedin} rel="me nofollow noreferrer">
+        <LinkedInIcon /> {extractHandle(social.linkedin)}
+      </a>
+    </li>
+  )}
+  {social.github && (
+    <li>
+      <a href={social.github} rel="me nofollow noreferrer">
+        <GitHubIcon /> {extractHandle(social.github)}
+      </a>
+    </li>
+  )}
+</ul>
+
+<style>
+  ul {
+    display: flex;
+    gap: var(--space-4);
+    list-style: none;
+  }
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color var(--transition);
+  }
+
+  a:hover {
+    color: var(--color-link);
+  }
+
+  /* SVG styling to ensure it matches text size and alignment */
+  svg {
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+  }
+</style>

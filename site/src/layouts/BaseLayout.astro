@@ -2,6 +2,7 @@
 import { SITE } from '../config';
 import Cookiebot from '../components/Cookiebot.astro';
 import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import SocialLinks from '../components/SocialLinks.astro';
 import '../styles/global.css';
 
 export interface Props {
@@ -51,9 +52,6 @@ const pathname = Astro.url.pathname;
     <meta property="og:site_name" content={SITE.title} />
     <meta property="og:type" content="website" />
 
-    <!-- Font Awesome -->
-    <link id="fa-stylesheet" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.0.0/css/all.min.css" />
-
     {isProd && <GoogleAnalytics id={SITE.googleAnalyticsId} />}
   </head>
   <body>
@@ -90,22 +88,7 @@ const pathname = Astro.url.pathname;
         </div>
 
         <div class="footer-social">
-          <ul aria-label="Social media links">
-            {SITE.social.linkedin && (
-              <li>
-                <a href={SITE.social.linkedin} rel="me nofollow noreferrer">
-                  <i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn
-                </a>
-              </li>
-            )}
-            {SITE.social.github && (
-              <li>
-                <a href={SITE.social.github} rel="me nofollow noreferrer">
-                  <i class="fab fa-github" aria-hidden="true"></i> GitHub
-                </a>
-              </li>
-            )}
-          </ul>
+          <SocialLinks social={SITE.social} />
         </div>
       </div>
     </footer>
