@@ -180,7 +180,7 @@ This repository is organised as a **monorepo** to manage multiple distinct but
 interrelated concerns: the personal website, its underlying infrastructure,
 maintenance tooling, and AI agent context.
 
-The separation into workspaces (like \`site/\` and \`terraform/\`) is deliberate:
+The separation into workspaces (like `site/` and `terraform/`) is deliberate:
 it ensures that different domains have clear boundaries, separate deployment
 cadences, and isolated configurations. This structure improves developer
 experience by allowing contributors to focus on one area at a time while
