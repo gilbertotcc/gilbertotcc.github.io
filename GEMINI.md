@@ -278,10 +278,6 @@ gh issue edit <issue-number> --body "New body"
 gh issue edit <issue-number> --add-label "bug"
 gh issue edit <issue-number> --remove-label "bug"
 
-# Assign or unassign
-gh issue edit <issue-number> --add-assignee <username>
-gh issue edit <issue-number> --remove-assignee <username>
-
 # Close an issue
 gh issue close <issue-number>
 
@@ -310,6 +306,8 @@ gh run watch <run-id>
 ---
 
 ### Re-enabling Disabled Features
+
+Apply these changes to file `.gemini/settings.json`.
 
 **Checkpointing** (re-enable for long multi-session tasks):
 
