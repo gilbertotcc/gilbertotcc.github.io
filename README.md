@@ -174,10 +174,23 @@ See [Infrastructure as Code](terraform/README.md) for details.
 
 ## Repository Structure
 
+## Architecture
+
+This repository is organised as a **monorepo** to manage multiple distinct but
+interrelated concerns: the personal website, its underlying infrastructure,
+maintenance tooling, and AI agent context.
+
+The separation into workspaces (like \`site/\` and \`terraform/\`) is deliberate:
+it ensures that different domains have clear boundaries, separate deployment
+cadences, and isolated configurations. This structure improves developer
+experience by allowing contributors to focus on one area at a time while
+providing a unified entry point for common tasks via root-level scripts.
+
 - `curriculum-vitae/`: Private submodule with personal context for AI agents.
 - `site/`: Astro website source files.
   - `public/`: Static files copied verbatim to the build output.
-  - `src/`: Source code including components, content collections, pages, and styles.
+  - `src/`: Source code including components, content collections, pages, and
+    styles.
     - `components/`: Reusable Astro components.
     - `data/`: Source YAML files for content collections.
     - `layouts/`: Page layouts (e.g., `BaseLayout.astro`).

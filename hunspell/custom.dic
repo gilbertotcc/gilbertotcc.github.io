@@ -1,4 +1,4 @@
-142
+144
 ADR/S
 API/S
 Astro/S
@@ -37,6 +37,7 @@ KYC/S
 LLM/S
 MCP/S
 Minima
+monorepo
 NC
 NonCommercial
 OpenTofu
@@ -141,3 +142,4 @@ RESTful
 scaleups
 SME/S
 organization
+etc

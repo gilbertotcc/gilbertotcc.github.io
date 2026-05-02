@@ -26,8 +26,10 @@ jobs:
       - name: Install, build, and upload your site
         uses: withastro/action@v6
         with:
-          path: ./site
+          path: .
           node-version: 22
+          build-cmd: npm run site:build
+          out-dir: site/dist
 
   deploy:
     needs: build
