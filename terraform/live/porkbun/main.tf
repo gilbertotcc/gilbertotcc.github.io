@@ -16,6 +16,8 @@ locals {
     content   = "ac98ea27998108f82ab45d9de5bdf9"
   }
 
+  google_site_verification = "google-site-verification=hOt0h-ukCd9VdOIL63-uxakf8MijhaTESNEMO2QgkBM"
+
   # IP addresses provided by GitHub to point the A and AAAA records to.
   # See: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#dns-records-for-your-custom-domain
   a_records = [
@@ -39,6 +41,12 @@ resource "porkbun_dns_record" "gilbertotaccaricom_gh_domain_verification" {
   type      = "TXT"
   subdomain = local.github_pages_challenge.subdomain
   content   = local.github_pages_challenge.content
+}
+
+resource "porkbun_dns_record" "gilbertotaccaricom_google_site_verification" {
+  domain  = "gilbertotaccari.com"
+  type    = "TXT"
+  content = local.google_site_verification
 }
 
 resource "porkbun_dns_record" "gh_a_record" {
