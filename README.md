@@ -14,42 +14,48 @@ To build and run this project, you need:
 
 ## Usage
 
-To set up and run the Astro site locally:
+### npm workspaces
 
-```sh
-npm install
-npm run site:dev
-```
+This repository is organised as a **monorepo** using npm workspaces. The `site/`
+directory is the main website workspace.
 
-### Local verification
+- **Install all dependencies:** `npm install`
+- **Install a dependency for the website:**
+  `npm install <pkg> --workspace=site`
+- **Install a dev dependency for the website:**
+  `npm install <pkg> --save-dev --workspace=site`
 
-Before deploying, you can serve the final production build locally to verify
-that production-only features (like analytics and consent banners) are working
-correctly:
+### Working on the website (site/)
 
-```sh
-npm run site:build
-npm run site:preview
-```
+The website source code and Astro configuration live under `site/`. Common
+tasks are exposed via root-level scripts:
 
-Key paths and configuration:
+- **Run local dev server:** `npm run site:dev` (access at `http://localhost:4321`)
+- **Build the site:** `npm run site:build`
+- **Preview production build:** `npm run site:preview`
+- **Astro CLI:** `npm run site:astro -- <command>`
+  - Example: `npm run site:astro -- add @astrojs/sitemap` (updates
+    `site/astro.config.mjs` and `site/package.json`).
 
-- `/` (Home): Served from `site/src/pages/index.astro`.
-- `/thought-leadership`: Dynamic collections using data from `site/src/data/`.
-- `/privacy`: Prose content from `site/src/pages/privacy.md`.
-- `/llms.txt`: Generated from the TypeScript endpoint at `site/src/pages/llms.txt.ts`.
-- `site/src/layouts/BaseLayout.astro`: The single source of layout truth for all
-  pages. It modularises third-party service injection (Cookiebot, GA4) via
-  dedicated components.
-- `/sitemap-index.xml`: Generated sitemap.
+#### Adding content
 
-Additional commands:
+- **New page:** To add `/about`, create `site/src/pages/about.astro`.
+- **New reusable component:** Create `site/src/components/MyComponent.astro`
+  and import it into a page or layout.
+- **Astro-specific details:** For details about layouts, content collections,
+  and configuration, see [`site/GEMINI.md`](site/GEMINI.md).
 
-- **Build:** `npm run build` (outputs to `./dist/`)
-- **Preview:** `npm run preview`
-- **Astro CLI:** `npm run astro ...` (e.g., `astro add`, `astro check`)
+### First contribution (example workflow)
 
-For more information, check the [Astro documentation](https://docs.astro.build).
+If you are new to the project, follow these steps to make your first change:
+
+1. **Clone the repo** and install dependencies: `npm install`.
+2. **Start the dev server:** `npm run site:dev` and open
+   <http://localhost:4321>.
+3. **Modify a page**, e.g., `site/src/pages/index.astro` or
+   `site/src/pages/privacy.md`.
+4. **Run the spell check** before committing: `./scripts/run_spell_check.sh`.
+5. **Commit and push** your changes.
 
 ## Quality Assurance
 
@@ -59,7 +65,8 @@ This project enforces spell checking on all Markdown (`.md`), HTML (`.html`),
 and Astro (`.astro`) files using `hunspell` and a British English dictionary
 (`en_GB`).
 
-The check covers the `site/src/` source files.
+The check primarily targets content under `site/src/` and related
+markdown/HTML/Astro files.
 
 #### Prerequisites
 
@@ -171,30 +178,19 @@ The infrastructure required to make the website work is configured using an
 Infrastructure as Code (IaC) approach.
 See [Infrastructure as Code](terraform/README.md) for details.
 
-## Repository Structure
+## Monorepo Overview
 
-## Architecture
+This repository is organised as a monorepo to manage multiple distinct but
+interrelated concerns. The separation into directories ensures that different
+domains have clear boundaries and isolated configurations.
 
-This repository is organised as a **monorepo** to manage multiple distinct but
-interrelated concerns: the personal website, its underlying infrastructure,
-maintenance tooling, and AI agent context.
-
-The separation into workspaces (like `site/` and `terraform/`) is deliberate:
-it ensures that different domains have clear boundaries, separate deployment
-cadences, and isolated configurations. This structure improves developer
-experience by allowing contributors to focus on one area at a time while
-providing a unified entry point for common tasks via root-level scripts.
-
-- `curriculum-vitae/`: Private submodule with personal context for AI agents.
-- `site/`: Astro website source files.
-  - `public/`: Static files copied verbatim to the build output.
-  - `src/`: Source code including components, content collections, pages, and
-    styles.
-    - `components/`: Reusable Astro components.
-    - `data/`: Source YAML files for content collections.
-    - `layouts/`: Page layouts (e.g., `BaseLayout.astro`).
-    - `pages/`: File-based routing (Astro, Markdown, and TypeScript endpoints).
-- `terraform/`: Infrastructure as Code configuration.
+| Path | Purpose | Safe operations |
+| :--- | :--- | :--- |
+| `site/` | Astro website source code and config | Full access (read/write) |
+| `terraform/` | IaC for GitHub and DNS management | Read-only |
+| `scripts/` | Maintenance and utility scripts | Read; write with care |
+| `hunspell/` | Dictionaries for spell checking | Editable (esp. `custom.dic`) |
+| `curriculum-vitae/` | Private submodule with personal context | Read-only |
 
 ## Tips & Tricks
 
