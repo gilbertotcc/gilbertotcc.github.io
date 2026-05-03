@@ -27,7 +27,7 @@ jobs:
         uses: withastro/action@v6
         with:
           path: .
-          node-version: 22
+          node-version: 24
           build-cmd: npm run site:build
           out-dir: site/dist
 
