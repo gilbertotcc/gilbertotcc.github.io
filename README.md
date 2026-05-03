@@ -200,6 +200,12 @@ variables in `.env` files (see
 [`load_dotenv`](https://direnv.net/man/direnv.toml.1.html#codeloaddotenvcode)
 configuration parameter).
 
+**Use `.node-version`.** The Node version to use in this project is configured
+in `.node-version` file. To use it, install a tool that supports that file
+(e.g., [fnm](https://github.com/Schniz/fnm)).
+See [node-version-usage](https://github.com/shadowspawn/node-version-usage) for
+additional information.
+
 ## License
 
 The content of this project itself is licensed under the
