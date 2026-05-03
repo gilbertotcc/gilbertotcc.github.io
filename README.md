@@ -17,8 +17,8 @@ To build and run this project, you need:
 To set up and run the Astro site locally:
 
 ```sh
-cd site && npm install
-npm run dev
+npm install
+npm run site:dev
 ```
 
 ### Local verification
@@ -28,9 +28,8 @@ that production-only features (like analytics and consent banners) are working
 correctly:
 
 ```sh
-cd site
-npm run build
-npm run preview
+npm run site:build
+npm run site:preview
 ```
 
 Key paths and configuration:
