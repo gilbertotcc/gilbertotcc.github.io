@@ -1,5 +1,26 @@
 # GEMINI.md
 
+## AI Quick Reference
+
+- **Workspace and commands**
+  - Website code and Astro config live under `site/`.
+  - Use `npm run site:<task>` (e.g. `site:dev`, `site:build`, `site:preview`)
+    for website workflows.
+  - Install website dependencies with `npm install <pkg> --workspace=site`.
+- **Writable paths for AI**
+  - `site/src/`, `hunspell/` → read/write allowed.
+  - `site/public/`, `scripts/` → read, write with care.
+- **Read-only paths for AI**
+  - `terraform/`, `.github/workflows/`, `curriculum-vitae/` → must not be
+    modified.
+
+### Hard constraints
+
+- Do not run `tofu apply`.
+- Do not modify files under `terraform/`.
+- Do not modify files under `.github/workflows/`.
+- Do not modify files under `curriculum-vitae/`.
+
 ## Project Overview
 
 This is a personal website and blog monorepo for gilbertotaccari.com. It
@@ -8,10 +29,8 @@ as code, utility scripts, and AI agent context.
 
 ### Repository Structure
 
-- `site/`: The Astro website source code and configuration.
-- `terraform/`: Infrastructure as Code (IaC) for GitHub and DNS management.
-- `scripts/`: Utility scripts for maintenance tasks.
-- `curriculum-vitae/`: Private submodule providing personal data as context.
+See [Monorepo Overview](README.md#monorepo-overview) in `README.md` for a
+breakdown of the paths and their purposes.
 
 ### Agent Boundaries
 
@@ -36,44 +55,16 @@ The following table defines the blast radius for AI agent actions:
 
 ## Building and Running
 
-### Prerequisites
+For full website workflow and QA steps, see
+[Working on the website (site/)](README.md#working-on-the-website-site) and
+[Quality Assurance](README.md#quality-assurance) in `README.md`.
 
-- **Node.js**: Version `22+`.
-- **npm**: Package manager.
+### Minimal commands
 
-### Commands
-
-- **Install dependencies:**
-
-  ```sh
-  npm install
-  ```
-
-- **Local development server:**
-
-  ```sh
-  npm run site:dev
-  ```
-
-  Access the site at `http://localhost:4321`.
-
-- **Build the site:**
-
-  ```sh
-  npm run site:build
-  ```
-
-- **Preview the production build locally:**
-
-  ```sh
-  npm run site:preview
-  ```
-
-- **Astro CLI:**
-
-  ```sh
-  npm run site:astro -- --help
-  ```
+- **Install dependencies:** `npm install`
+- **Local development server:** `npm run site:dev`
+- **Build the site:** `npm run site:build`
+- **Preview production build:** `npm run site:preview`
 
 ## Development Conventions
 
@@ -82,8 +73,8 @@ The following table defines the blast radius for AI agent actions:
 To minimise context usage, detailed operational instructions are delegated to
 specific files. Always refer to these before proceeding with related tasks:
 
-- **`README.md`**: Detailed prerequisites (e.g., `hunspell`), AI-assisted
-  development (MCP) setup, and third-party services list.
+- **`README.md`**: Detailed prerequisites, AI-assisted development (MCP) setup,
+  and repository structure.
 - **`terraform/README.md`**: Infrastructure as Code (IaC) operations, OpenTofu
   rules, and cloud dependencies.
 - **`site/GEMINI.md`**: Astro-specific content management, layout, and
@@ -108,19 +99,12 @@ specific files. Always refer to these before proceeding with related tasks:
 - **Markdown Linting:** Pull requests trigger `markdownlint-cli2` via GitHub
   Actions (`check-markdown-files.yml`).
 - **Link Checking:** `lychee` verifies links in Markdown, HTML, and Astro files.
-- **Spell Checking:** You MUST validate any changes to Markdown (`.md`), HTML
-  (`.html`), or Astro (`.astro`) files by running
-  `./scripts/run_spell_check.sh`. Note that this script currently excludes
-  technical directories (e.g., `dist/`) from analysis and smartly ignores
-  code snippets. If it flags a correctly spelled word, add it to
-  `hunspell/custom.dic` and update the word count on the first line.
+- **Spell Checking:** You MUST validate any changes by running
+  `./scripts/run_spell_check.sh`. See `README.md` for more details.
 - **Dependabot:** Automated dependency updates are managed by Dependabot,
   covering the `npm` ecosystem under the `site/` directory.
 - **Deployment:** Automatic deployment to GitHub Pages on pushes to the `main`
-  branch (`deploy.yml`). It uses the official Astro deployment action,
-  uploading an artifact and bypassing branch-based deployment.
-  **Manual Step Required:** In GitHub repository Settings → Pages, the Source
-  must be set to "GitHub Actions".
+  branch (`deploy.yml`).
 
 ## Project Structure
 
@@ -130,9 +114,6 @@ specific files. Always refer to these before proceeding with related tasks:
 - `hunspell/`: Custom dictionary and configuration for spell checking.
 - `scripts/`: Utility scripts, including `run_spell_check.sh`.
 - `site/`: Astro website source files.
-  - `public/`: Static files copied verbatim to the build output.
-  - `src/`: Source code including components, content collections, pages, and styles.
-  - `dist/`: Build output directory (generated).
 - `curriculum-vitae/`: Private submodule with personal context for AI agents.
 - `terraform/`: Infrastructure as Code configuration.
 
