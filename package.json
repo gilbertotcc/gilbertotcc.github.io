@@ -10,5 +10,10 @@
     "site:preview": "npm run preview --workspace=site",
     "site:check": "npm run check --workspace=site",
     "site:astro": "npm run astro --workspace=site"
+  },
+  "overrides": {
+    "gilbertotaccari.com": {
+      "yaml-language-server": "^1.23.0"
+    }
   }
 }
