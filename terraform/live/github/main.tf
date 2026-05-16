@@ -23,13 +23,6 @@ resource "github_repository" "gilbertotcc_github_io" {
 
   delete_branch_on_merge = true
 
-  vulnerability_alerts = true
-
-  pages {
-    build_type = "workflow"
-    cname      = "gilbertotaccari.com"
-  }
-
   security_and_analysis {
     secret_scanning {
       status = "enabled"
@@ -84,6 +77,23 @@ resource "github_repository_webhook" "gilbertotcc_github_io" {
     "pull_request_review",
     "pull_request_review_comment"
   ]
+}
+
+resource "github_repository_vulnerability_alerts" "gilbertotcc_github_io" {
+  repository = github_repository.gilbertotcc_github_io.name
+  enabled    = true
+}
+
+resource "github_repository_dependabot_security_updates" "gilbertotcc_github_io" {
+  repository = github_repository.gilbertotcc_github_io.name
+  enabled    = true
+}
+
+resource "github_repository_pages" "gilbertotcc_github_io" {
+  repository = github_repository.gilbertotcc_github_io.name
+
+  build_type = "workflow"
+  cname      = "gilbertotaccari.com"
 }
 
 # Set the variable in your environment as TF_VAR_discord_webhook_url
