@@ -1,4 +1,4 @@
-146
+148
 ADR/S
 API/S
 Astro/S
@@ -60,6 +60,8 @@ YAML/S
 Zod
 adr/S
 ai
+antigravity
+antigravitycli
 api/S
 astro
 booktitle

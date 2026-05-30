@@ -1,6 +1,8 @@
 # IMPORTANT: Sensitive information (e.g., API keys, secrets)
 .env
-.gemini/gemini-cli-telemetry-key.json
+.antigravitycli/*
+!.antigravitycli/settings.json
 
 # dependencies
 node_modules/
+
