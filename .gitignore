@@ -1,8 +1,5 @@
 # IMPORTANT: Sensitive information (e.g., API keys, secrets)
 .env
-.agents/*
-!.agents/settings.json
-!.agents/mcp_config.json
 
 # dependencies
 node_modules/
