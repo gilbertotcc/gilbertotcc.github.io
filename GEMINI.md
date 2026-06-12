@@ -1,4 +1,4 @@
-# ANTIGRAVITY.md
+# GEMINI.md
 
 ## AI Quick Reference
 
@@ -77,7 +77,7 @@ specific files. Always refer to these before proceeding with related tasks:
   and repository structure.
 - **`terraform/README.md`**: Infrastructure as Code (IaC) operations, OpenTofu
   rules, and cloud dependencies.
-- **`site/ANTIGRAVITY.md`**: Astro-specific content management, layout, and
+- **`site/GEMINI.md`**: Astro-specific content management, layout, and
   configuration.
 
 ### Environment and Secrets
@@ -108,7 +108,7 @@ specific files. Always refer to these before proceeding with related tasks:
 
 ## Project Structure
 
-- `.antigravitycli/settings.json`: Configuration for AI agents and MCP servers.
+- `.agents/settings.json` & `.agents/mcp_config.json`: Configuration for AI agents and MCP servers.
 - `.github/workflows/`: CI/CD pipeline definitions.
 - `.markdownlint-cli2.yaml` & `lychee.toml`: QA tool configurations.
 - `hunspell/`: Custom dictionary and configuration for spell checking.
@@ -240,7 +240,7 @@ gh run watch <run-id>
 
 ### Re-enabling Disabled Features
 
-Apply these changes to file `.antigravitycli/settings.json`.
+Apply these changes to file `.agents/settings.json`.
 
 **Checkpointing** (re-enable for long multi-session tasks):
 
@@ -257,5 +257,5 @@ unrelated sessions.
 "experimental": { "enableAgents": true }
 ```
 
-Use this only when you need Antigravity to autonomously plan and execute a complex
+Use this only when you need Gemini to autonomously plan and execute a complex
 multi-step task (e.g., full feature scaffolding). Disable again after use.
