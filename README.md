@@ -43,7 +43,7 @@ tasks are exposed via root-level scripts:
 - **New reusable component:** Create `site/src/components/MyComponent.astro`
   and import it into a page or layout.
 - **Astro-specific details:** For details about layouts, content collections,
-  and configuration, see [`site/ANTIGRAVITY.md`](site/ANTIGRAVITY.md).
+  and configuration, see [`site/GEMINI.md`](site/GEMINI.md).
 
 ### First contribution (example workflow)
 
@@ -108,13 +108,13 @@ Protocol (MCP).
 MCP allows AI models to safely interact with local and remote tools and data
 sources.
 
-The configuration is stored in `.antigravitycli/settings.json` and includes:
+The configuration is stored in `.agents/settings.json` and includes:
 
 - **Context7**: Provides up-to-date documentation and code examples for
   libraries and frameworks.
 
-For instructions on how Antigravity CLI should interact with GitHub (issues, pull
-requests, commits), see [`ANTIGRAVITY.md`](./ANTIGRAVITY.md).
+For instructions on how Gemini should interact with GitHub (issues, pull
+requests, commits), see [`GEMINI.md`](./GEMINI.md).
 
 ### Curriculum Vitae Context
 
