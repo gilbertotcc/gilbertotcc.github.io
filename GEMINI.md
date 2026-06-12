@@ -108,7 +108,8 @@ specific files. Always refer to these before proceeding with related tasks:
 
 ## Project Structure
 
-- `.agents/settings.json` & `.agents/mcp_config.json`: Configuration for AI agents and MCP servers.
+- `.agents/settings.json` & `.agents/mcp_config.json`: Configuration for AI
+  agents and MCP servers.
 - `.github/workflows/`: CI/CD pipeline definitions.
 - `.markdownlint-cli2.yaml` & `lychee.toml`: QA tool configurations.
 - `hunspell/`: Custom dictionary and configuration for spell checking.
@@ -235,27 +236,3 @@ gh run view <run-id>
 # Watch a running workflow in real time
 gh run watch <run-id>
 ```
-
----
-
-### Re-enabling Disabled Features
-
-Apply these changes to file `.agents/settings.json`.
-
-**Checkpointing** (re-enable for long multi-session tasks):
-
-```json
-"general": { "checkpointing": { "enabled": true } }
-```
-
-Remember to disable it again after the task to avoid accumulating context across
-unrelated sessions.
-
-**Agents** (re-enable for fully autonomous multi-step tasks):
-
-```json
-"experimental": { "enableAgents": true }
-```
-
-Use this only when you need Gemini to autonomously plan and execute a complex
-multi-step task (e.g., full feature scaffolding). Disable again after use.
