@@ -1,4 +1,4 @@
-# GEMINI.md
+# CLAUDE.md
 
 ## AI Quick Reference
 
@@ -20,6 +20,11 @@
 - Do not modify files under `terraform/`.
 - Do not modify files under `.github/workflows/`.
 - Do not modify files under `curriculum-vitae/`.
+
+These are enforced mechanically, not just documented here: see
+`.claude/settings.json` for the `permissions.deny` rules covering the paths
+above, and `.claude/hooks/block-tofu-apply.sh` (registered as a `PreToolUse`
+hook) for the `tofu apply` block.
 
 ## Project Overview
 
@@ -77,7 +82,7 @@ specific files. Always refer to these before proceeding with related tasks:
   and repository structure.
 - **`terraform/README.md`**: Infrastructure as Code (IaC) operations, OpenTofu
   rules, and cloud dependencies.
-- **`site/GEMINI.md`**: Astro-specific content management, layout, and
+- **`site/CLAUDE.md`**: Astro-specific content management, layout, and
   configuration.
 
 ### Environment and Secrets
@@ -108,8 +113,9 @@ specific files. Always refer to these before proceeding with related tasks:
 
 ## Project Structure
 
-- `.agents/settings.json` & `.agents/mcp_config.json`: Configuration for AI
-  agents and MCP servers.
+- `.mcp.json`: MCP server configuration for AI agents.
+- `.claude/settings.json` & `.claude/hooks/`: Permissions and hooks
+  configuration for AI agents.
 - `.github/workflows/`: CI/CD pipeline definitions.
 - `.markdownlint-cli2.yaml` & `lychee.toml`: QA tool configurations.
 - `hunspell/`: Custom dictionary and configuration for spell checking.
