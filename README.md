@@ -43,7 +43,7 @@ tasks are exposed via root-level scripts:
 - **New reusable component:** Create `site/src/components/MyComponent.astro`
   and import it into a page or layout.
 - **Astro-specific details:** For details about layouts, content collections,
-  and configuration, see [`site/GEMINI.md`](site/GEMINI.md).
+  and configuration, see [`site/CLAUDE.md`](site/CLAUDE.md).
 
 ### First contribution (example workflow)
 
@@ -108,13 +108,15 @@ Protocol (MCP).
 MCP allows AI models to safely interact with local and remote tools and data
 sources.
 
-The configuration is stored in `.agents/settings.json` and includes:
+The MCP server configuration is stored in `.mcp.json`, and AI agent
+permissions/hooks are configured in `.claude/settings.json`. The MCP servers
+configured include:
 
 - **Context7**: Provides up-to-date documentation and code examples for
   libraries and frameworks.
 
-For instructions on how Gemini should interact with GitHub (issues, pull
-requests, commits), see [`GEMINI.md`](./GEMINI.md).
+For instructions on how Claude Code should interact with GitHub (issues, pull
+requests, commits), see [`CLAUDE.md`](./CLAUDE.md).
 
 ### Curriculum Vitae Context
 
