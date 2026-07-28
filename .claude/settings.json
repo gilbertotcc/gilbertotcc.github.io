@@ -2,11 +2,8 @@
   "permissions": {
     "deny": [
       "Edit(terraform/**)",
-      "Write(terraform/**)",
       "Edit(.github/workflows/**)",
-      "Write(.github/workflows/**)",
       "Edit(curriculum-vitae/**)",
-      "Write(curriculum-vitae/**)",
       "Bash(tofu apply*)"
     ]
   },
