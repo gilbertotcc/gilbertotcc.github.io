@@ -115,8 +115,7 @@ configured include:
 
 - **Context7**: Provides up-to-date documentation and code examples for
   libraries and frameworks.
-- **Astro Docs**: Official Astro documentation search, no authentication
-  required.
+- **Astro Docs**: Official Astro documentation search.
 
 For instructions on how Claude Code should interact with GitHub (issues, pull
 requests, commits), see [`CLAUDE.md`](./CLAUDE.md).

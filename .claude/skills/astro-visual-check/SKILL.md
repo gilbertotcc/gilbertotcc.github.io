@@ -15,9 +15,9 @@ workflows (`spell-check.yml`, `check-markdown-files.yml`, link checking via
 
 An automatic, per-edit version of the same idea also runs via the
 `screenshot-changed-page.sh` PostToolUse hook whenever an AI agent edits a
-single page file. This skill is for a broader, whole-branch sweep instead
-(e.g. before opening a PR), so it doesn't miss pages edited earlier in the
-branch's history.
+file under `site/src/`. This skill is for a broader, whole-branch sweep
+instead (e.g. before opening a PR), so it doesn't miss pages edited earlier
+in the branch's history, or edits made outside an AI agent.
 
 ## Procedure
 
@@ -30,22 +30,29 @@ branch's history.
 
    Anything outside `site/` is out of scope for this skill.
 
-2. **Identify changed pages.** Filter to files under `site/src/pages/**`
-   with a `.astro` or `.md` extension (`.ts` API-endpoint pages like
-   `llms.txt.ts` have no visual output — skip them). Map each file to its
-   route: `index.astro` → `/`, `privacy.md` → `/privacy`,
-   `thought-leadership.astro` → `/thought-leadership`, etc. A dynamic
-   `[param]` route can't be mapped to a concrete URL automatically — report
-   it as skipped rather than guessing a value.
+2. **Identify what to screenshot.** Split the changed `site/` files:
+   - Files under `site/src/pages/**` with a `.astro` or `.md` extension
+     (`.ts` API-endpoint pages like `llms.txt.ts` have no visual output —
+     skip them) map directly to a route: `index.astro` → `/`,
+     `privacy.md` → `/privacy`, `thought-leadership.astro` →
+     `/thought-leadership`, etc. A dynamic `[param]` route can't be mapped
+     to a concrete URL automatically — report it as skipped rather than
+     guessing a value.
+   - Any other changed file under `site/src/` (components, data, layouts,
+     etc.) means every real page needs screenshotting, not just the ones
+     with a directly-changed page file — a shared file (e.g.
+     `site/src/data/publications.yml`) can change how more than one page
+     renders. In that case, enumerate every page under `site/src/pages/**`
+     and map each to its route the same way.
 
 3. **Gate.** If anything under `site/` changed, run `npm run site:check`
    (astro check). If it fails, report the failure and stop — don't
    screenshot a build that doesn't type-check.
 
-4. **Screenshot changed pages.** If the gate passed and any page files
-   changed: ensure the dev server is reachable on port 4321 (reuse one
+4. **Screenshot.** If the gate passed and there are pages to screenshot
+   (per step 2): ensure the dev server is reachable on port 4321 (reuse one
    already running; otherwise start `npm run site:dev` in the background
-   and poll until it responds). For each changed page's route, run:
+   and poll until it responds). For each page's route, run:
 
    ```sh
    node scripts/screenshot_page.mts <url> tmp/<page-slug>

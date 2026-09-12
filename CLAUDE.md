@@ -9,7 +9,7 @@
   - Install website dependencies with `npm install <pkg> --workspace=site`.
 - **Writable paths for AI**
   - `site/src/`, `hunspell/` → read/write allowed.
-  - `site/public/`, `scripts/`, `.claude/` → read, write with care.
+  - `site/`, `scripts/`, `.claude/` → read, write with care.
 - **Read-only paths for AI**
   - `terraform/`, `.github/workflows/`, `curriculum-vitae/` → must not be
     modified.
@@ -51,7 +51,7 @@ The following table defines the blast radius for AI agent actions:
 | Directory | Agent access |
 | :--- | :--- |
 | `site/src/`, `hunspell/` | Free to read and write |
-| `site/public/`, `scripts/`, `.claude/` | Read; write with care |
+| `site/`, `scripts/`, `.claude/` | Read; write with care |
 | `terraform/` | Read-only — never run `tofu apply` |
 | `curriculum-vitae/` | Read-only — private submodule, never modify |
 | `.github/workflows/` | Read-only — changes require human review |
