@@ -32,6 +32,7 @@ const canonicalURL = canonicalUrl || new URL(Astro.url.pathname, Astro.site || A
 
 const isProd = import.meta.env.PROD;
 const pathname = Astro.url.pathname;
+const privacyPage = SITE.pages.find((p) => p.path === '/privacy')!;
 ---
 <html lang={SITE.lang}>
   <head>
@@ -62,12 +63,11 @@ const pathname = Astro.url.pathname;
       <nav class="nav-inner" aria-label="Main navigation">
         <a href="/" class="nav-brand">{SITE.author.name}</a>
         <ul class="nav-links">
-          <li>
-            <a href="/" aria-current={pathname === "/" ? "page" : undefined}>Home</a>
-          </li>
-          <li>
-            <a href="/thought-leadership" aria-current={pathname === "/thought-leadership" ? "page" : undefined}>Thought Leadership</a>
-          </li>
+          {SITE.pages.filter((p) => p.nav).map((p) => (
+            <li>
+              <a href={p.path} aria-current={pathname === p.path ? "page" : undefined}>{p.title}</a>
+            </li>
+          ))}
         </ul>
       </nav>
     </header>
@@ -82,7 +82,7 @@ const pathname = Astro.url.pathname;
           {SITE.author && <p><strong>{SITE.author.name}</strong></p>}
           <p>{SITE.description}</p>
           <p>
-            <a href="/privacy">Privacy Policy</a>
+            <a href={privacyPage.path}>{privacyPage.title}</a>
             •
             <a href="javascript:Cookiebot.renew()">Cookie Settings</a>
           </p>
