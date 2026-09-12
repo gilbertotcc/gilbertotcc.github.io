@@ -16,6 +16,9 @@
       "datasourceTemplate": "github-releases"
     }
   ],
+  "git-submodules": {
+    "enabled": true
+  },
   "labels": [
     "dependencies"
   ],
