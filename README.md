@@ -123,10 +123,9 @@ requests, commits), see [`CLAUDE.md`](./CLAUDE.md).
 
 ### Skills
 
-Project-scoped Claude Code skills live under `.claude/skills/` and are
-installed for this project only (not the user's global `~/.claude/skills/`),
-so they are available to anyone who clones the repo. `skills-lock.json`
-tracks their source and version for updates. Current skills:
+Project-scoped Claude Code skills live under `.claude/skills/`.
+`skills-lock.json` tracks source and version for updates of the skills installed
+from [Skills](https://www.skills.sh/). Current skills:
 
 - **astro-framework**: Astro-specific patterns and rules (hydration,
   content collections, routing, etc.).
