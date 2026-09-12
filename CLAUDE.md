@@ -82,7 +82,7 @@ For full website workflow and QA steps, see
 
 ### Documentation Routing
 
-To minimise context usage, detailed operational instructions are delegated to
+To minimize context usage, detailed operational instructions are delegated to
 specific files. Always refer to these before proceeding with related tasks:
 
 - **`README.md`**: Detailed prerequisites, AI-assisted development (MCP) setup,

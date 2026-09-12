@@ -16,7 +16,7 @@ To build and run this project, you need:
 
 ### npm workspaces
 
-This repository is organised as a **monorepo** using npm workspaces. The `site/`
+This repository is organized as a **monorepo** using npm workspaces. The `site/`
 directory is the main website workspace.
 
 - **Install all dependencies:** `npm install`
@@ -62,8 +62,8 @@ If you are new to the project, follow these steps to make your first change:
 ### Spell Check
 
 This project enforces spell checking on all Markdown (`.md`), HTML (`.html`),
-and Astro (`.astro`) files using `hunspell` and a British English dictionary
-(`en_GB`).
+and Astro (`.astro`) files using `hunspell` and an American English dictionary
+(`en_US`).
 
 The check primarily targets content under `site/src/` and related
 markdown/HTML/Astro files. Vendored content under `.claude/skills/` is
@@ -71,21 +71,21 @@ excluded (see `scripts/run_spell_check.sh`).
 
 #### Prerequisites
 
-To run the spell check locally, you must install `hunspell` and the British
+To run the spell check locally, you must install `hunspell` and the American
 English dictionary:
 
 - **macOS** (using Homebrew):
 
   ```sh
   brew install hunspell
-  # The en_GB dictionary may need to be downloaded manually, or use standard paths.
+  # The en_US dictionary may need to be downloaded manually, or use standard paths.
   # Usually, hunspell on macOS uses dictionaries from ~/Library/Spelling or /Library/Spelling
   ```
 
 - **Ubuntu/Debian**:
 
   ```sh
-  sudo apt-get install hunspell hunspell-en-gb
+  sudo apt-get install hunspell hunspell-en-us
   ```
 
 #### Running the checks
@@ -202,7 +202,7 @@ See [Infrastructure as Code](terraform/README.md) for details.
 
 ## Monorepo Overview
 
-This repository is organised as a monorepo to manage multiple distinct but
+This repository is organized as a monorepo to manage multiple distinct but
 interrelated concerns. The separation into directories ensures that different
 domains have clear boundaries and isolated configurations.
 

@@ -10,7 +10,7 @@ if ! command -v hunspell &> /dev/null; then
 fi
 
 # Define custom dictionary path
-DICT_ARGS="-d ./hunspell/custom,en_GB"
+DICT_ARGS="-d ./hunspell/custom,en_US"
 
 # Function to strip Jekyll/Astro Front Matter
 strip_front_matter() {
@@ -48,7 +48,7 @@ echo "Running spell check on Markdown, HTML, and Astro files (ignoring code snip
 # Find relevant files using git ls-files to respect .gitignore.
 # Vendored/external content (e.g. third-party skill docs under .claude/skills/)
 # is excluded: it isn't authored by this project and isn't expected to match
-# the custom en_GB dictionary.
+# the custom en_US dictionary.
 while IFS= read -r -d '' file; do
     if [[ "$file" == *.md ]]; then
         errors=$(check_md "$file" | sort -u)

@@ -28,11 +28,11 @@ systematic monitoring of individuals).
 
 ### 2.1 Website Analytics (Google Analytics 4)
 
-**Purpose:** Statistical analysis of site traffic and user behaviour
+**Purpose:** Statistical analysis of site traffic and user behavior
 (e.g., pages viewed, session duration, referral source) in order to
 understand how the Site is used and to improve its content.
 
-**Data processed:** Anonymised IP address, browser type, device type,
+**Data processed:** Anonymized IP address, browser type, device type,
 operating system, pages visited, session duration, referral URL, and
 approximate geographic location (city level).
 
@@ -57,19 +57,19 @@ Site available.
 ### 3.1 Google Analytics 4
 
 The Site uses Google Analytics 4 (GA4), a web analytics service provided by
-Google LLC. GA4 collects anonymised usage data as described in Section 2.1.
+Google LLC. GA4 collects anonymized usage data as described in Section 2.1.
 
 - [Google Privacy Policy](https://policies.google.com/privacy)
 - [Google Analytics data practices](https://support.google.com/analytics/answer/6004245)
 
 GA4 is only activated after you grant consent via the Cookiebot banner.
-IP anonymisation is enabled.
+IP anonymization is enabled.
 
 ### 3.2 Cookiebot (Consent Management Platform)
 
 The Site uses Cookiebot, a consent management platform provided by
 Cybot A/S, to collect and manage your cookie preferences. Cookiebot may
-process a hashed (anonymised) identifier derived from your IP address to
+process a hashed (anonymized) identifier derived from your IP address to
 register your consent record.
 
 - [Cookiebot Privacy Policy](https://www.cookiebot.com/en/privacy-policy/)

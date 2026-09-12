@@ -68,13 +68,13 @@ built with **Astro**.
   layout truth. All pages wrap their content with
   `<BaseLayout title="..." description="...">`.
 - **Third-party Services:** Cookiebot (consent management) and Google Analytics
-  4 tracking scripts are modularised into dedicated components
+  4 tracking scripts are modularized into dedicated components
   (`Cookiebot.astro`, `GoogleAnalytics.astro`) and injected via `BaseLayout.astro`.
-- **Social Links:** Footer social media links are modularised into
+- **Social Links:** Footer social media links are modularized into
   `SocialLinks.astro`.
 - **Icons:** Icons (e.g., LinkedIn, GitHub) are managed as inline SVG components
   in `site/src/icons/` to avoid external CSS dependencies (like Font Awesome).
-- **CSS:** Global styles and design tokens (variables for typography, colours,
+- **CSS:** Global styles and design tokens (variables for typography, colors,
   etc.)
 - **Environment:** The production environment is gated using
   `import.meta.env.PROD` (which is true during `npm run build`). This prevents
