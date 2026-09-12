@@ -1,9 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap');
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/bebas-neue/400.css';
 
 :root {
   /* Typography */
   --font-body:    'Inter', system-ui, sans-serif;
-  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-display: 'Bebas Neue', 'Arial Narrow', sans-serif;
 
   /* Fluid type scale */
   --text-sm:   clamp(0.875rem, 0.83rem + 0.22vw, 1rem);       /* 14→16px */
@@ -117,7 +120,8 @@ p { text-wrap: pretty; max-width: 68ch; }
 }
 
 .nav-brand {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
+  font-weight: 600;
   font-size: var(--text-lg);
   color: var(--color-text);
   text-decoration: none;
@@ -155,12 +159,18 @@ p { text-wrap: pretty; max-width: 68ch; }
 
 .main-content h1 {
   font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.05;
   font-size: var(--text-2xl);
   margin-bottom: var(--space-4);
 }
 
 .main-content h2 {
   font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.05;
   font-size: var(--text-xl);
   margin-top: var(--space-8);
   margin-bottom: var(--space-3);
@@ -228,11 +238,18 @@ td {
 tbody tr:last-child td { border-bottom: none; }
 tbody tr:nth-child(even) { background: var(--color-surface); }
 
-.prose h1,
-.prose h2,
-.prose h3 { font-family: var(--font-display); }
+.prose h1 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.05;
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-6);
+}
 
-.prose h1 { font-size: var(--text-2xl); margin-bottom: var(--space-6); }
+.prose h2,
+.prose h3 { font-family: var(--font-body); font-weight: 600; }
+
 .prose h2 { font-size: var(--text-xl); margin-top: var(--space-8); margin-bottom: var(--space-3); }
 .prose h3 { font-size: var(--text-lg); margin-top: var(--space-6); margin-bottom: var(--space-2); }
 
