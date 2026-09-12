@@ -1,0 +1,25 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/\\.github/workflows/.*\\.ya?ml$/"
+      ],
+      "matchStrings": [
+        "CONFTEST_VERSION:\\s+\"(?<currentValue>.*)\""
+      ],
+      "depNameTemplate": "open-policy-agent/conftest",
+      "datasourceTemplate": "github-releases"
+    }
+  ],
+  "labels": [
+    "dependencies"
+  ],
+  "schedule": [
+    "* 4 * * 3"
+  ]
+}
