@@ -46,6 +46,19 @@ built with **Astro**.
   - **Privacy:** This directory is strictly local/private and is never processed
     by Astro or published to the website.
 
+## Verifying Changes
+
+- `astro check` verifies types, not visual correctness — visual review is
+  largely automated:
+  - A `PostToolUse` hook screenshots the single page an AI agent just edited
+    or wrote under `site/src/pages/` (desktop + mobile). Dynamic `[param]`
+    routes are skipped (no concrete URL to infer).
+  - The `astro-visual-check` skill sweeps every Astro page changed in the
+    branch (vs `main`) before opening/merging a PR.
+  - Neither covers shared components/layouts with no single page file, or
+    non-page changes — check those manually against a running dev server
+    (see `README.md` for how to start it).
+
 ## Layout and Styling
 
 - **Base Layout:** `site/src/layouts/BaseLayout.astro` is the single source of
