@@ -10,4 +10,9 @@ export const SITE = {
     linkedin: 'https://www.linkedin.com/in/gilbertotaccari/',
     github: 'https://github.com/gilbertotcc',
   },
+  pages: [
+    { path: '/', title: 'Home', description: 'Engineering leader and CTO portfolio.', nav: true },
+    { path: '/thought-leadership', title: 'Thought Leadership', description: 'Public speaking, Manning manuscript reviews, and academic research.', nav: true },
+    { path: '/privacy', title: 'Privacy Policy', description: 'Data processing and GDPR compliance details.', nav: false },
+  ],
 };

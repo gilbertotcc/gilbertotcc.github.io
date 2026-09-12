@@ -1,25 +1,32 @@
 import type { APIRoute } from 'astro';
 import { SITE } from '../config';
 
+const SOCIAL_LABELS: Record<string, string> = {
+  linkedin: 'LinkedIn',
+  github: 'GitHub',
+};
+
 export const GET: APIRoute = () => {
-  const now = new Date().toUTCString();
+  const contentLines = SITE.pages.map(
+    (p) => `- [${p.title}](${SITE.url}${p.path}): ${p.description}`
+  );
+
+  const socialLines = Object.entries(SITE.social).map(
+    ([key, url]) => `- [${SOCIAL_LABELS[key] ?? key}](${url})`
+  );
+
   const body = [
     `# ${SITE.title}`,
     ``,
     `> ${SITE.description}`,
     ``,
-    `_Generated: ${now}_`,
-    ``,
     `## Content`,
     ``,
-    `- [Home](${SITE.url}/): Engineering leader and CTO portfolio.`,
-    `- [Thought Leadership](${SITE.url}/thought-leadership): Public speaking, Manning manuscript reviews, and academic research.`,
-    `- [Privacy Policy](${SITE.url}/privacy): Data processing and GDPR compliance details.`,
+    ...contentLines,
     ``,
     `## Social`,
     ``,
-    `- [LinkedIn](${SITE.social.linkedin})`,
-    `- [GitHub](${SITE.social.github})`,
+    ...socialLines,
     ``
   ].join('\n');
 

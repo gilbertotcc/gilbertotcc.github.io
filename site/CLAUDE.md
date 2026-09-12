@@ -38,9 +38,10 @@ built with **Astro**.
   for LLMs, including site metadata, page links, and social information.
   It is implemented as an API endpoint at `site/src/pages/llms.txt.ts`. It
   adheres to the `llmstxt.org` specification (H1 title, blockquote summary, H2
-  file lists). To update its content, edit the string array in the `GET`
-  function. Any `.ts` file in `src/pages/` exporting a `GET` function becomes a
-  static file at build time.
+  file lists). Page and social entries are generated from `SITE.pages` and
+  `SITE.social` in `site/src/config.ts` — to update its content, edit those
+  arrays, not `llms.txt.ts` itself. Any `.ts` file in `src/pages/` exporting a
+  `GET` function becomes a static file at build time.
 - **AI Context Submodule:** A private submodule `curriculum-vitae` is used to
   provide personal data as context for LLM-assisted development.
   - **Privacy:** This directory is strictly local/private and is never processed
@@ -85,5 +86,8 @@ built with **Astro**.
 - **Site Settings:** Site-wide values are typed TypeScript constants defined in
   `site/src/config.ts`, ensuring type safety and IDE autocompletion.
   - **Metadata:** Title, author, description, lang, and URL.
+  - **Pages:** `SITE.pages` (`path`, `title`, `description`, `nav`) is the
+    single source of truth for the header nav, the footer's Privacy Policy
+    link, and `llms.txt`.
   - **Analytics:** Google Analytics 4 and Cookiebot IDs.
   - **Social Links:** LinkedIn and GitHub links.
