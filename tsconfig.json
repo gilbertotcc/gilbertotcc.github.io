@@ -3,6 +3,9 @@
   "references": [
     {
       "path": "./site"
+    },
+    {
+      "path": "./scripts"
     }
   ]
 }

@@ -15,5 +15,9 @@
     "gilbertotaccari.com": {
       "yaml-language-server": "^1.23.0"
     }
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.2",
+    "playwright": "^1.63.0"
   }
 }

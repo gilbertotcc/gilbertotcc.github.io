@@ -9,7 +9,7 @@
   - Install website dependencies with `npm install <pkg> --workspace=site`.
 - **Writable paths for AI**
   - `site/src/`, `hunspell/` → read/write allowed.
-  - `site/public/`, `scripts/` → read, write with care.
+  - `site/`, `scripts/`, `.claude/` → read, write with care.
 - **Read-only paths for AI**
   - `terraform/`, `.github/workflows/`, `curriculum-vitae/` → must not be
     modified.
@@ -23,8 +23,15 @@
 
 These are enforced mechanically, not just documented here: see
 `.claude/settings.json` for the `permissions.deny` rules covering the paths
-above, and `.claude/hooks/block-tofu-apply.sh` (registered as a `PreToolUse`
-hook) for the `tofu apply` block.
+above, `.claude/hooks/block-tofu-apply.sh` (registered as a `PreToolUse`
+hook) for the `tofu apply` block, and `.claude/hooks/protect-readonly-paths.sh`
+(same hook point) for blocking shell commands that would mutate the
+read-only paths directly.
+
+A separate `PostToolUse` hook, `.claude/hooks/screenshot-changed-page.sh`,
+automatically type-checks and screenshots an Astro page whenever it's edited
+or written by an AI agent (see the `astro-visual-check` skill for the
+whole-branch, on-demand equivalent).
 
 ## Project Overview
 
@@ -44,7 +51,7 @@ The following table defines the blast radius for AI agent actions:
 | Directory | Agent access |
 | :--- | :--- |
 | `site/src/`, `hunspell/` | Free to read and write |
-| `site/public/`, `scripts/` | Read; write with care |
+| `site/`, `scripts/`, `.claude/` | Read; write with care |
 | `terraform/` | Read-only — never run `tofu apply` |
 | `curriculum-vitae/` | Read-only — private submodule, never modify |
 | `.github/workflows/` | Read-only — changes require human review |
@@ -116,10 +123,14 @@ specific files. Always refer to these before proceeding with related tasks:
 - `.mcp.json`: MCP server configuration for AI agents.
 - `.claude/settings.json` & `.claude/hooks/`: Permissions and hooks
   configuration for AI agents.
+- `.claude/skills/` & `skills-lock.json`: Project-scoped Claude Code skills
+  (vendored and in-repo) and their lock manifest.
+- `tsconfig.json`: Root TypeScript project references (`site/`, `scripts/`).
 - `.github/workflows/`: CI/CD pipeline definitions.
 - `.markdownlint-cli2.yaml` & `lychee.toml`: QA tool configurations.
 - `hunspell/`: Custom dictionary and configuration for spell checking.
-- `scripts/`: Utility scripts, including `run_spell_check.sh`.
+- `scripts/`: Utility scripts, including `run_spell_check.sh` and
+  `screenshot_page.mts`.
 - `site/`: Astro website source files.
 - `curriculum-vitae/`: Private submodule with personal context for AI agents.
 - `terraform/`: Infrastructure as Code configuration.

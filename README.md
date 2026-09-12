@@ -66,7 +66,8 @@ and Astro (`.astro`) files using `hunspell` and a British English dictionary
 (`en_GB`).
 
 The check primarily targets content under `site/src/` and related
-markdown/HTML/Astro files.
+markdown/HTML/Astro files. Vendored content under `.claude/skills/` is
+excluded (see `scripts/run_spell_check.sh`).
 
 #### Prerequisites
 
@@ -114,9 +115,28 @@ configured include:
 
 - **Context7**: Provides up-to-date documentation and code examples for
   libraries and frameworks.
+- **Astro Docs**: Official Astro documentation search.
 
 For instructions on how Claude Code should interact with GitHub (issues, pull
 requests, commits), see [`CLAUDE.md`](./CLAUDE.md).
+
+### Skills
+
+Project-scoped Claude Code skills live under `.claude/skills/`.
+`skills-lock.json` tracks source and version for updates of the skills installed
+from [Skills](https://www.skills.sh/). Current skills:
+
+- **astro-framework**: Astro-specific patterns and rules (hydration,
+  content collections, routing, etc.).
+- **frontend-design**: General guidance for distinctive, intentional visual
+  design.
+- **curriculum-vitae-sync**: Codifies the CV → YAML sync workflow described
+  in [`site/CLAUDE.md`](site/CLAUDE.md).
+- **astro-visual-check**: Sweeps every Astro page changed in a branch and
+  visually reviews headless-browser screenshots of it. Requires a one-time
+  `npx playwright install chromium` after `npm install`. A per-edit version
+  of the same check also runs automatically via a hook whenever an AI agent
+  edits a page file (see `.claude/hooks/screenshot-changed-page.sh`).
 
 ### Curriculum Vitae Context
 
@@ -193,6 +213,7 @@ domains have clear boundaries and isolated configurations.
 | `scripts/` | Maintenance and utility scripts | Read; write with care |
 | `hunspell/` | Dictionaries for spell checking | Editable (esp. `custom.dic`) |
 | `curriculum-vitae/` | Private submodule with personal context | Read-only |
+| `.claude/` | AI agent config: permissions, hooks, project-scoped skills | Read; write with care |
 
 ## Tips & Tricks
 

@@ -46,6 +46,22 @@ built with **Astro**.
   - **Privacy:** This directory is strictly local/private and is never processed
     by Astro or published to the website.
 
+## Verifying Changes
+
+- `astro check` verifies types, not visual correctness — visual review is
+  automated on every edit, not just before a PR:
+  - A `PostToolUse` hook re-runs `astro check` and screenshots (desktop +
+    mobile) whenever an AI agent edits or writes a file under `site/src/`.
+    Editing a page file directly screenshots just that page; editing
+    anything else under `site/src/` (components, data, layouts, etc.)
+    screenshots every page instead, since a shared file can change how more
+    than one page renders. Dynamic `[param]` routes are skipped (no
+    concrete URL to infer).
+  - The `astro-visual-check` skill runs the same sweep on demand for the
+    whole branch (vs `main`) — useful before opening/merging a PR, or to
+    recheck changes made outside an AI agent (the hook only fires on
+    Edit/Write tool calls).
+
 ## Layout and Styling
 
 - **Base Layout:** `site/src/layouts/BaseLayout.astro` is the single source of

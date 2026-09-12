@@ -45,7 +45,10 @@ ERROR_COUNT=0
 
 echo "Running spell check on Markdown, HTML, and Astro files (ignoring code snippets)..."
 
-# Find relevant files using git ls-files to respect .gitignore
+# Find relevant files using git ls-files to respect .gitignore.
+# Vendored/external content (e.g. third-party skill docs under .claude/skills/)
+# is excluded: it isn't authored by this project and isn't expected to match
+# the custom en_GB dictionary.
 while IFS= read -r -d '' file; do
     if [[ "$file" == *.md ]]; then
         errors=$(check_md "$file" | sort -u)
@@ -62,7 +65,7 @@ while IFS= read -r -d '' file; do
         echo "$errors"
         ERROR_COUNT=$((ERROR_COUNT + 1))
     fi
-done < <(git ls-files -co --exclude-standard -z -- "*.md" "*.html" "*.astro")
+done < <(git ls-files -co --exclude-standard -z -- "*.md" "*.html" "*.astro" ":(exclude).claude/skills/**")
 
 if [ $ERROR_COUNT -gt 0 ]; then
     echo -e "\nSpell check failed. Found errors in $ERROR_COUNT file(s)."
