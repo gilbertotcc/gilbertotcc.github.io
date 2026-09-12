@@ -1,6 +1,6 @@
 ---
 name: astro-visual-check
-description: Visually verify every Astro page changed in the current branch (vs main) by type-checking the site and taking headless-browser screenshots. Use when asked to check, verify, or review all pages/files changed in a branch before opening or merging a PR.
+description: Visually verify every changed Astro page in the current branch by type-checking the site and taking headless-browser screenshots. Use when asked to check, verify, or review pages/files changed in a branch.
 metadata:
   category: quality-assurance
 ---
@@ -8,16 +8,10 @@ metadata:
 # Astro Visual Check
 
 Sweeps every Astro page changed in the current branch and visually reviews
-it. Scoped strictly to the Astro website (`site/`) — this does not run
-spelling, markdown-lint, or link checks, which already exist as separate CI
-workflows (`spell-check.yml`, `check-markdown-files.yml`, link checking via
-`lychee`).
+it. Scoped strictly to the Astro website (`site/`).
 
-An automatic, per-edit version of the same idea also runs via the
-`screenshot-changed-page.sh` PostToolUse hook whenever an AI agent edits a
-file under `site/src/`. This skill is for a broader, whole-branch sweep
-instead (e.g. before opening a PR), so it doesn't miss pages edited earlier
-in the branch's history, or edits made outside an AI agent.
+The `screenshot-changed-page.sh` hook does the same thing per edit; use this
+skill for a whole-branch sweep instead.
 
 ## Procedure
 
@@ -50,9 +44,11 @@ in the branch's history, or edits made outside an AI agent.
    screenshot a build that doesn't type-check.
 
 4. **Screenshot.** If the gate passed and there are pages to screenshot
-   (per step 2): ensure the dev server is reachable on port 4321 (reuse one
-   already running; otherwise start `npm run site:dev` in the background
-   and poll until it responds). For each page's route, run:
+   (per step 2): check whether the dev server is already reachable on port
+   4321. If not, start `npm run site:dev` in the background, poll until it
+   responds, and remember that you started it — stop it once done, since it
+   wasn't there before. If it was already running, reuse it and leave it
+   running. For each page's route, run:
 
    ```sh
    node scripts/screenshot_page.mts <url> tmp/<page-slug>
@@ -74,5 +70,5 @@ in the branch's history, or edits made outside an AI agent.
 ## Boundaries
 
 - Never screenshot or check anything outside `site/`.
-- Don't duplicate spelling/markdown-lint/link-check work; those are CI's job.
-- Leave the dev server running after the check (for reuse); don't kill it.
+- If you started the dev server yourself, stop it when done; leave a
+  pre-existing one running.
