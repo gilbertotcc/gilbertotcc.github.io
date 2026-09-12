@@ -21,7 +21,7 @@ jobs:
       - name: Install required packages
         run: |
           sudo apt-get update
-          sudo apt-get install -y hunspell hunspell-en-gb
+          sudo apt-get install -y hunspell hunspell-en-us
           
       - name: Run spelling check
         run: ./scripts/run_spell_check.sh

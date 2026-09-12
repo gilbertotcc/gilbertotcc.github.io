@@ -37,7 +37,7 @@ See the [References](#references) section below.
 In any of the directories in `live/`, you can find the configurations of GitHub,
 Porkbun, and the OpenTofu state (in a GCS bucket).
 
-Run `tofu init` to initialise the configuration, then use the usual OpenTofu
+Run `tofu init` to initialize the configuration, then use the usual OpenTofu
 commands `plan` and `apply`  to plan the changes and apply them, respectively.
 
 ## References
