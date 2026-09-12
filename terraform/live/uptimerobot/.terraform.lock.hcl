@@ -2,24 +2,25 @@
 # Manual edits may be lost in future updates.
 
 provider "registry.opentofu.org/uptimerobot/uptimerobot" {
-  version     = "2.0.0"
-  constraints = "~> 2.0.0"
+  version     = "1.3.9"
+  constraints = "~> 1.3.0"
   hashes = [
-    "h1:DZLr4r9GHMOP3Lp61yuGTg2VoSefw9gNvsqLxojZ/EI=",
-    "h1:DxlO0Zaaz2zXjtXZfR7ZdAqcsLjULL0uOAYDwgqP33Y=",
-    "h1:El5AThKiQhL6vSCxvFPOjnxl8XFsm/b22iclhfMr+Fw=",
-    "h1:GRvCtGmXz+Pts/5KD8vaXcnNn8kSYK0FerodsNH+my8=",
-    "h1:ISrVgoZV46Z+84vEajkYzO7TMWk85kiuOcimjkd6Dr8=",
-    "h1:KPPHigzKnevIrntR+eome0IssgK5jar/TD3fAWklBvA=",
-    "h1:RURIa1b3wxYgJ8XALU2hgJUIXt9vMNtg5ENEn7By7Tg=",
-    "h1:v15YVdIcBYPmE9kBuP5vJLbAzVXvLtaGy1Mc/3G8lE8=",
-    "zh:14f6edfc3b840fc224bd6f11114e9b20ab4dd131e1779627e247b06d3e612a18",
-    "zh:582d7ce79718fc8f7f022282770be2b6e545655e13de724c2c43f154983c7ae4",
-    "zh:5fba8285aedf99b2322e6953c4f827c347c22ed30cecaa67beb6ec8d2a617429",
-    "zh:6399f4fdaa837d7d3b08370bb15270e3358426e31b9ddab5104fbc846fc2dc7d",
-    "zh:8e48eafb39a99a4e560c6601f89bba9442f20fa6cfb2fc61b78e75e838a9705b",
-    "zh:b53eb8be053241f577b4307441f7f281ad87b2ea2860143edeb61fe903c185f9",
-    "zh:d3b932c5add7f067ad6ef9a2c1351cab842f6a69096e62925d68941611ca014d",
-    "zh:edb54d199efa97b74f842cdf62508eb5d9b3fd4ad2db7f92120c2d301912e448",
+    "h1:GTWeKPhc1lQ0iGbFpwhXXRJIlYEAIL7aPewCGT+R3tg=",
+    "h1:JEZOAj/ZHHzdfAIjNMbdLJYNRwzRFwx94G/zVMZ/7No=",
+    "h1:XsCoACIlheJ4Kqa4KeCbxdxtmJeH9El008yEVMaNp/U=",
+    "h1:fljZYZVWOeMY1pq+tJwW4PMLAEGHBi0nEn9+dMxNHXw=",
+    "h1:n6xzV0ycUIpHSK5TS22u6cn7ZU/R0eradCL8HlS9ecw=",
+    "h1:o031cHi6GLIz3Y4EkxRPl8YZB6aICiaBA4mSFAnatGA=",
+    "h1:plNfrpSnq8Di7fTHE7Q8tkMdGLGds6dOEGIolwk5d+M=",
+    "h1:uGy20r7OnBudvgZMD+dAuLuT4HTCgHeR3GGEvedX9NE=",
+    "zh:291117f52005e6a76eb349bf168213ec2581150f5c4f25675c087790ee6340d9",
+    "zh:662d943299d59c21197a1e4449d64fb78ecb6cb71b0fe91db2aaf058d14a0e45",
+    "zh:890df766e9b839623b1f0437355032a3c006226a6c200cd911e15ee1a9014e9f",
+    "zh:a22d9b3cf72f51c1d0a9d11717d5fd21fb82aff9f7a7dc471922f9a2b824d6d6",
+    "zh:bdea98f88fa3a1aa451f9847bd75293f30bae4b1b4271a9d01c7d8cb67c69158",
+    "zh:ca89a2193a6c10d2e2a3565c61fa1170af63f8533cac5501234a5e496b0e6bf9",
+    "zh:e1e1eab65e1c0e5bbe45f7278f3274055fb172bc658ef9b93cd1750a0d0be6c1",
+    "zh:f8505b6cfbfccb1872c7979d2d2c1f8ead9b5681cc74380e1f926bafeeb481e2",
+    "zh:fe274768ef6635976737b5ad6ef502932d99bfa6a36404c167a5446871855e44",
   ]
 }

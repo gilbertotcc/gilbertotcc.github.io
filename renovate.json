@@ -19,6 +19,12 @@
   "git-submodules": {
     "enabled": true
   },
+  "packageRules": [
+    {
+      "matchDatasources": ["terraform-provider", "terraform-module"],
+      "registryUrls": ["https://registry.opentofu.org"]
+    }
+  ],
   "labels": [
     "dependencies"
   ],
