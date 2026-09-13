@@ -7,6 +7,12 @@
       "skillPath": "skills/astro-framework/SKILL.md",
       "computedHash": "7d8940b3fb7dab50f8303afdb3210cc9385da3a8d243fe99efdc08ce53aed90c"
     },
+    "caveman-commit": {
+      "source": "juliusbrussee/caveman",
+      "sourceType": "github",
+      "skillPath": "skills/caveman-commit/SKILL.md",
+      "computedHash": "b416cf134b0f33ddadeca7977aebdbb2d3db79a166d0fce2e1aabeec98132766"
+    },
     "frontend-design": {
       "source": "anthropics/skills",
       "sourceType": "github",

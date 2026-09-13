@@ -34,5 +34,8 @@
         ]
       }
     ]
+  },
+  "enabledPlugins": {
+    "markdown-editor@gilbertotcc-claude-plugins": true
   }
 }

@@ -14,4 +14,7 @@ config:
 gitignore: true
 globs:
   - "site/src/**/*.md"
-  - "*.md"
+  - "**.md"
+ignores:
+  - ".agents/**"
+  - ".claude/**"
