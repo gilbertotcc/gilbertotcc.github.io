@@ -66,8 +66,9 @@ and Astro (`.astro`) files using `hunspell` and an American English dictionary
 (`en_US`).
 
 The check primarily targets content under `site/src/` and related
-markdown/HTML/Astro files. Vendored content under `.claude/skills/` is
-excluded (see `scripts/run_spell_check.sh`).
+markdown/HTML/Astro files. Vendored skill content under `.agents/skills/`
+(symlinked from `.claude/skills/`) is excluded (see
+`scripts/run_spell_check.sh`).
 
 #### Prerequisites
 
@@ -122,14 +123,19 @@ requests, commits), see [`CLAUDE.md`](./CLAUDE.md).
 
 ### Skills
 
-Project-scoped Claude Code skills live under `.claude/skills/`.
-`skills-lock.json` tracks source and version for updates of the skills installed
-from [Skills](https://www.skills.sh/). Current skills:
+Project-scoped Claude Code skills are exposed under `.claude/skills/`.
+Skills installed from [Skills](https://www.skills.sh/) via the `/plugin`
+command are vendored under `.agents/skills/`, with `.claude/skills/`
+symlinking to each one; `skills-lock.json` tracks their source and version
+for updates. In-repo skills (not vendored from an external source) live
+directly under `.claude/skills/`. Current skills:
 
-- **astro-framework**: Astro-specific patterns and rules (hydration,
-  content collections, routing, etc.).
-- **frontend-design**: General guidance for distinctive, intentional visual
-  design.
+- **astro-framework** (vendored): Astro-specific patterns and rules
+  (hydration, content collections, routing, etc.).
+- **frontend-design** (vendored): General guidance for distinctive,
+  intentional visual design.
+- **caveman-commit** (vendored): Writes Conventional Commits messages
+  compressed to intent only.
 - **curriculum-vitae-sync**: Codifies the CV → YAML sync workflow described
   in [`site/CLAUDE.md`](site/CLAUDE.md).
 - **astro-visual-check**: Sweeps every Astro page changed in a branch and
@@ -137,6 +143,9 @@ from [Skills](https://www.skills.sh/). Current skills:
   `npx playwright install chromium` after `npm install`. A per-edit version
   of the same check also runs automatically via a hook whenever an AI agent
   edits a page file (see `.claude/hooks/screenshot-changed-page.sh`).
+
+The `markdown-editor` plugin is also enabled (see `.claude/settings.json`)
+for Markdown authoring and linting workflows.
 
 ### Curriculum Vitae Context
 
@@ -214,6 +223,7 @@ domains have clear boundaries and isolated configurations.
 | `hunspell/` | Dictionaries for spell checking | Editable (esp. `custom.dic`) |
 | `curriculum-vitae/` | Private submodule with personal context | Read-only |
 | `.claude/` | AI agent config: permissions, hooks, project-scoped skills | Read; write with care |
+| `.agents/` | Vendored skill content symlinked from `.claude/skills/` | Read; write with care |
 
 ## Tips & Tricks
 

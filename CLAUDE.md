@@ -9,7 +9,7 @@
   - Install website dependencies with `npm install <pkg> --workspace=site`.
 - **Writable paths for AI**
   - `site/src/`, `hunspell/` → read/write allowed.
-  - `site/`, `scripts/`, `.claude/` → read, write with care.
+  - `site/`, `scripts/`, `.claude/`, `.agents/` → read, write with care.
 - **Read-only paths for AI**
   - `terraform/`, `.github/workflows/`, `curriculum-vitae/` → must not be
     modified.
@@ -51,7 +51,7 @@ The following table defines the blast radius for AI agent actions:
 | Directory | Agent access |
 | :--- | :--- |
 | `site/src/`, `hunspell/` | Free to read and write |
-| `site/`, `scripts/`, `.claude/` | Read; write with care |
+| `site/`, `scripts/`, `.claude/`, `.agents/` | Read; write with care |
 | `terraform/` | Read-only — never run `tofu apply` |
 | `curriculum-vitae/` | Read-only — private submodule, never modify |
 | `.github/workflows/` | Read-only — changes require human review |
@@ -125,6 +125,8 @@ specific files. Always refer to these before proceeding with related tasks:
   configuration for AI agents.
 - `.claude/skills/` & `skills-lock.json`: Project-scoped Claude Code skills
   (vendored and in-repo) and their lock manifest.
+- `.agents/skills/`: Vendored skill content (installed via `/plugin`);
+  `.claude/skills/` symlinks to it.
 - `tsconfig.json`: Root TypeScript project references (`site/`, `scripts/`).
 - `.github/workflows/`: CI/CD pipeline definitions.
 - `.markdownlint-cli2.yaml` & `lychee.toml`: QA tool configurations.
