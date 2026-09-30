@@ -2,24 +2,24 @@
 # Manual edits may be lost in future updates.
 
 provider "registry.opentofu.org/uptimerobot/uptimerobot" {
-  version     = "1.11.0"
-  constraints = "~> 1.11.0"
+  version     = "1.12.0"
+  constraints = "~> 1.12.0"
   hashes = [
-    "h1:0eSApXt+2OUGnA7Sc2aICje7dMLoH1p3tkiSmLAIzvA=",
-    "h1:2Mh5kUiGk+5arEZNyXgeelupmYTxd726VcZQPRu+QGU=",
-    "h1:9gJjjnQN0X3uncUQARSpcGog1DS6saKe88q9cwCicWs=",
-    "h1:9pbjDQl6MBn/7PicccqwFk3VnvDlFWptPbpyzOB3+go=",
-    "h1:IG0yS6UM4+i+/DmKoV00c3p+D+GZTrcUIkLBop/Df2I=",
-    "h1:cL1a6Abo1nmW9EPFnZql1bSHJzcSStrRXofta1NJMus=",
-    "h1:nWa3TjxcQsfBV5eRSY8U+FpCPqYLHld/4zCU22SGdIQ=",
-    "h1:otLck+9zFilCKQZadnCFFH4VaI+hhGHQRhinxzFr+Nw=",
-    "zh:12af5b1fd36cbe301f687f845d3dad896d962e53f92dc1c000dc970cdc3f37b9",
-    "zh:4ae087b21a9033658400b5bd03f313cff321e3ed87d6664da1ad7f9d500ff5e0",
-    "zh:562f00a880a864b7c73867c71f695f7c60e154def490d3cd9dd742a73db45974",
-    "zh:83a484105b43bedfdf38a5eba7ac79c5f59d87137cb781eb093e13c934adae3a",
-    "zh:a141e6d131274ee2dddebe2583c4c8be182483272c3ec736cec671159370d3c0",
-    "zh:c72c6d288768eba040243132f10e155bdec217f14f97813c59bb838875a41736",
-    "zh:d7aedcacf435cf31411ff0b73e61073665652980beca0af992c8d86ae03d8a58",
-    "zh:f4f74056d7c3d787cc78a1c0554227b5da71a40c5840fef3ef93b91a70f88782",
+    "h1:44m/iLvCPEctBFwshqG3Pomf7leTKyZ2//uuocVYbjc=",
+    "h1:FwKw6DdRgmK1dpDxlsU40QAr1Etr6LJP8OmLOjxHTdQ=",
+    "h1:louwnU4vqgrF0v10MWl2XoRWU0Oqx67j5GGBkjUuii0=",
+    "h1:nIvZS1Ubt1Rsk/BvjRSk0F++CwZPfNGmfjHInQd/Cow=",
+    "h1:sE7SG/mg2svdc69GFfCAS0Dci/VDQYnYZJaUZkC9TjM=",
+    "h1:tRNpBU8dqPWnU5LjVlZ1/IZbChXprOpsRpAOLUAvlgY=",
+    "h1:u1raxJof7GW3juJt6C4sQrx6/VJEOM7e9stVA4lwwEU=",
+    "h1:xRaDc1/j/etyDC0VNGiSp6r0AQvqtaD/74Dj5vHvUaY=",
+    "zh:0b5aebda79b11f4dc1b1fb3b1a964f05adf9b6dd9b24be6eadbe5a92f970da46",
+    "zh:2fc34a67cebc0c0566df6f4825895286532eb8563346d618ab3589bf3146b516",
+    "zh:72d25d208dbaa04f84e3f5311f8dfc16e5dffbd8548043e24315b658850aed59",
+    "zh:97555bce2cd1ce74b6e35bd549d1c67dc130419a13dd93df2a14492839cd2185",
+    "zh:cdd4b28515de6eb0a5aa0ccf3e48bc712d27bb3c8c8c3df83dc39450a67941a4",
+    "zh:e2af22771f78595c4a3f81e1d51dc9637a7e40a9e0149b9998bb493f1a965fee",
+    "zh:ecf51b51e6ddff60e1bf7f02552402d4a114e5347daa30f91db321069ac1a243",
+    "zh:f4183dcc7f872aef4bac55edb7064f7643240b6da4e9bc7b8451780acd416f65",
   ]
 }
