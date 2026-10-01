@@ -23,6 +23,11 @@
     {
       "matchDatasources": ["terraform-provider", "terraform-module"],
       "registryUrls": ["https://registry.opentofu.org"]
+    },
+    {
+      "description": "astro check (@astrojs/check) does not support TypeScript 7 yet",
+      "matchPackageNames": ["typescript"],
+      "allowedVersions": "<7"
     }
   ],
   "labels": [
