@@ -13,7 +13,7 @@
   },
   "overrides": {
     "gilbertotaccari.com": {
-      "yaml-language-server": "^1.23.0"
+      "yaml-language-server": "^2.0.0"
     }
   },
   "devDependencies": {
